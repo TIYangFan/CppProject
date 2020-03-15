@@ -18,7 +18,7 @@ CThread<T>::~CThread()
 template<typename T>
 void CThread<T>::run()
 {
-	m_state = pCThread_create(&m_thread, NULL, func_workFunction, this);
+	m_state = pthread_create(&m_thread, NULL, func_workFunction, this);
 }
 
 template<typename T>

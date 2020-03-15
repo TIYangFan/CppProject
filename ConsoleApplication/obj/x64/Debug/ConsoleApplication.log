@@ -3,6 +3,18 @@
   Validating architecture
   Starting remote build
   Compiling sources:
-  WorkQueue.cpp
+  WorkThreadPool.cpp
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(47,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(47,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(47,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(75,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(75,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(75,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkQueue.cpp(92,22): warning : conversion to ‘int’ from ‘std::queue<std::shared_ptr<CMyWork*>, std::deque<std::shared_ptr<CMyWork*>, std::allocator<std::shared_ptr<CMyWork*> > > >::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkQueue.cpp(92,22): warning :   return m_queue.size();
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkQueue.cpp(92,22): warning :                       ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(57,1): warning : control reaches end of non-void function [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(57,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(57,1): warning :  ^
   Linking objects
   ConsoleApplication.vcxproj -> C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\bin\x64\Debug\ConsoleApplication.out

@@ -114,6 +114,7 @@ bool CWorkQueue<T>::isTermination()
 }
 
 
+/*
 #define NUM_THREADS 5
 
 // 线程的运行函数
@@ -125,7 +126,9 @@ void* say_hello(void* args)
 	}
 	return 0;
 }
+*/
 
+/*
 int main(int argc, char * argv[])
 {
 	cout << "test for CWorkQueue class" << endl;
@@ -156,3 +159,4 @@ int main(int argc, char * argv[])
 	getchar();
 	return 0;
 }
+*/
