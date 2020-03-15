@@ -1,14 +1,14 @@
 #include "Thread.h"
 
 template<typename T>
-Thread<T>::Thread():m_WorkFunction(NULL),m_args(NULL),m_state(0),m_count(0), m_sleepSeconds(2), m_destroy(false)
+CThread<T>::CThread():m_WorkFunction(NULL),m_args(NULL),m_state(0),m_count(0), m_sleepSeconds(2), m_destroy(false)
 {
 	m_msg._msg_count = 1;
 	m_msg._msg_str_message = "this is a message";
 }
 
 template<typename T>
-Thread<T>::~Thread()
+CThread<T>::~CThread()
 {
 	m_WorkFunction = NULL;
 	m_args = NULL;
@@ -16,13 +16,13 @@ Thread<T>::~Thread()
 }
 
 template<typename T>
-void Thread<T>::run()
+void CThread<T>::run()
 {
-	m_state = pthread_create(&m_thread, NULL, func_workFunction, this);
+	m_state = pCThread_create(&m_thread, NULL, func_workFunction, this);
 }
 
 template<typename T>
-void Thread<T>::wait()
+void CThread<T>::wait()
 {
 	if (0 == m_state)
 	{
@@ -31,26 +31,26 @@ void Thread<T>::wait()
 }
 
 template<typename T>
-void * Thread<T>::func_workFunction(void * args)
+void * CThread<T>::func_workFunction(void * args)
 {
-	Thread<T> * ptrThread = (Thread<T> *)args;
-	while (NULL == ptrThread->m_WorkFunction && NULL == ptrThread->m_work && !ptrThread->m_destroy)
+	CThread<T> * ptrCThread = (CThread<T> *)args;
+	while (NULL == ptrCThread->m_WorkFunction && NULL == ptrCThread->m_work && !ptrCThread->m_destroy)
 	{
-		cout << "the thread do nothing, sleep " << ptrThread->m_sleepSeconds << " seconds" << endl;
-		sleep(ptrThread->m_sleepSeconds);
+		cout << "the CThread do nothing, sleep " << ptrCThread->m_sleepSeconds << " seconds" << endl;
+		sleep(ptrCThread->m_sleepSeconds);
 	}
-	if (NULL != ptrThread->m_WorkFunction && !ptrThread->m_destroy)
+	if (NULL != ptrCThread->m_WorkFunction && !ptrCThread->m_destroy)
 	{
-		ptrThread->m_WorkFunction(ptrThread->m_args);
+		ptrCThread->m_WorkFunction(ptrCThread->m_args);
 	}
-	else if (NULL != ptrThread->m_work && !ptrThread->m_destroy)
+	else if (NULL != ptrCThread->m_work && !ptrCThread->m_destroy)
 	{
-		ptrThread->m_work->init(ptrThread->m_args);
+		ptrCThread->m_work->init(ptrCThread->m_args);
 	}
 }
 
 template<typename T>
-int Thread<T>::setWorkMethod(void *(*methodFunction)(void *), void * args)
+int CThread<T>::setWorkMethod(void *(*methodFunction)(void *), void * args)
 {
 	if (args != NULL)
 	{
@@ -62,7 +62,7 @@ int Thread<T>::setWorkMethod(void *(*methodFunction)(void *), void * args)
 }
 
 template<typename T>
-int Thread<T>::setWorkMethod(T & work, void * args)
+int CThread<T>::setWorkMethod(T & work, void * args)
 {
 	if (args != NULL)
 	{
@@ -74,7 +74,7 @@ int Thread<T>::setWorkMethod(T & work, void * args)
 }
 
 template<typename T>
-void Thread<T>::sendMessage(void *(dealMessageFunction)(MSG *), void * type)
+void CThread<T>::sendMessage(void *(dealMessageFunction)(MSG *), void * type)
 {
 	if (!m_msg._msg_str_message.empty())
 	{
@@ -90,7 +90,7 @@ void Thread<T>::sendMessage(void *(dealMessageFunction)(MSG *), void * type)
 }
 
 template<typename T>
-int Thread<T>::setSleepTimeForSeconds(int sec)
+int CThread<T>::setSleepTimeForSeconds(int sec)
 {
 	if (sec > 0)
 	{
@@ -99,16 +99,16 @@ int Thread<T>::setSleepTimeForSeconds(int sec)
 }
 
 template<typename T>
-void Thread<T>::stop()
+void CThread<T>::stop()
 {
 	m_destroy = true;
 }
 
-void * thread_work(void* args)
+void * CThread_work(void* args)
 {
 	for (int i = 0; i < 20; i++)
 	{
-		cout << "the thread output the number:" << i << " " << (char*)args << endl;
+		cout << "the CThread output the number:" << i << " " << (char*)args << endl;
 	}
 }
 
@@ -118,14 +118,14 @@ void * dealWithMessage(MSG* msg)
 	tmpMsg._msg_count = msg->_msg_count;
 	tmpMsg._msg_str_message = msg->_msg_str_message;
 
-	cout << "[INFO]***get the message from the thread***:" << tmpMsg._msg_str_message << endl;
+	cout << "[INFO]***get the message from the CThread***:" << tmpMsg._msg_str_message << endl;
 }
 
-void * thread_work1(void* args)
+void * CThread_work1(void* args)
 {
 	for (int i = 0; i < 40; i++)
 	{
-		cout << "another thread output the number:" << i << " " << (char*)args << endl;
+		cout << "another CThread output the number:" << i << " " << (char*)args << endl;
 	}
 }
 
@@ -143,18 +143,19 @@ void Work::init(void * args)
 	cout << "this is the class function result: " << (char*)args << endl;
 }
 
+/*
 int main(int argc, char * argv[])
 {
-	cout << "test for thread class" << endl;
-	Thread<Work> t;
-	//Thread t1;
+	cout << "test for CThread class" << endl;
+	CThread<Work> t;
+	//CThread t1;
 
 	Work work;
 
 	t.run();
 	//t1.run();
 
-	//t1.setWorkMethod(thread_work1, (void *)"t1");
+	//t1.setWorkMethod(CThread_work1, (void *)"t1");
 	//t1.sendMessage(dealWithMessage);
 	sleep(6);
 
@@ -167,3 +168,4 @@ int main(int argc, char * argv[])
 	getchar();
 	return 0;
 }
+*/

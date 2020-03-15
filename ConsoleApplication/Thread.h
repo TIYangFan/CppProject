@@ -17,11 +17,11 @@ struct MSG
 };
 
 template<typename T>
-class Thread
+class CThread
 {
 public:
-	Thread();
-	~Thread();
+	CThread();
+	~CThread();
 
 	void run();
 	int setWorkMethod(void *(*methodFunction)(void*), void *args = NULL);

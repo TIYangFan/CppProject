@@ -78,11 +78,13 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Thread.cpp" />
     <ClCompile Include="ThreadPool.cpp" />
+    <ClCompile Include="WorkQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Thread.h" />
     <ClInclude Include="ThreadPool.h" />
     <ClInclude Include="unistd.h" />
+    <ClInclude Include="WorkQueue.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile />

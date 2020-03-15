@@ -3,37 +3,6 @@
   Validating architecture
   Starting remote build
   Compiling sources:
-  main.cpp
-  Thread.cpp
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(50,1): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(50,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(50,1): warning :  ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(99,1): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(99,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(99,1): warning :  ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(113,1): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(113,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(113,1): warning :  ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(122,1): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(122,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(122,1): warning :  ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(130,1): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(130,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(130,1): warning :  ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.h(40,6): warning : ‘Thread<Work>::m_state’ will be initialized after [-Wreorder]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.h(40,6): warning :   int m_state;
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.h(40,6): warning :       ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.h(39,6): warning : ‘int Thread<Work>::m_count’ [-Wreorder]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.h(39,6): warning :   int m_count;
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.h(39,6): warning :       ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(4,1): warning : when initialized here [-Wreorder]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.h(42,6): warning : ‘Thread<Work>::m_sleepSeconds’ will be initialized after [-Wreorder]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.h(42,6): warning :   int m_sleepSeconds;
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.h(42,6): warning :       ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.h(41,7): warning : ‘bool Thread<Work>::m_destroy’ [-Wreorder]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.h(41,7): warning :   bool m_destroy;
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.h(41,7): warning :        ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(4,1): warning : when initialized here [-Wreorder]
-  ThreadPool.cpp
+  WorkQueue.cpp
   Linking objects
   ConsoleApplication.vcxproj -> C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\bin\x64\Debug\ConsoleApplication.out
