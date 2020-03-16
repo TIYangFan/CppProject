@@ -7,18 +7,18 @@
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning : no return statement in function returning non-void [-Wreturn-type]
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning :  }
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning :  ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(81,1): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(81,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(81,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning :  ^
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(8,7): warning : unused variable ‘m_buff’ [-Wunused-variable]
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(8,7): warning :   char m_buff[MAXLINE];
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(8,7): warning :        ^
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(9,21): warning : unused variable ‘m_servaddr’ [-Wunused-variable]
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(9,21): warning :   struct sockaddr_in m_servaddr;
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(9,21): warning :                      ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(78,23): warning : cast to pointer from integer of different size [-Wint-to-pointer-cast]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(78,23): warning :    work.setData((void*)connfd);
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(78,23): warning :                        ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(78,24): warning : cast to pointer from integer of different size [-Wint-to-pointer-cast]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(78,24): warning :    work->setData((void*)connfd);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(78,24): warning :                         ^
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(97,39): warning : conversion to ‘int’ from ‘long int’ may alter its value [-Wconversion]
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(97,39): warning :   int n = recv(connfd, buff, MAXLINE, 0);
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(97,39): warning :                                        ^
@@ -32,8 +32,8 @@ C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.c
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning : no return statement in function returning non-void [-Wreturn-type]
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning :  }
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning :  ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(81,1): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(81,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(81,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning :  ^
   Linking objects
   ConsoleApplication.vcxproj -> C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\bin\x64\Debug\ConsoleApplication.out

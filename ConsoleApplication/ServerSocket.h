@@ -9,26 +9,32 @@
 #include <unistd.h>
 #include "WorkThreadPool.h"
 
-class CNetWork
+class CNetWork : public CWork
 {
 public:
 	CNetWork() {}
+	/*
 	CNetWork(string workName)
 	{
 		m_strWorkName = workName;
 		m_ptrData = NULL;
 	}
-	~CNetWork() {}
+	*/
+	~CNetWork() {
+		printf("[DEBUG] destructing \n");
+	}
 
 	inline int run();
+
+	/*
 	void setData(void* data)
 	{
 		m_ptrData = data;
 	}
-
 private:
 	string m_strWorkName;
 	void* m_ptrData;
+	*/
 };
 
 class CServerSocket

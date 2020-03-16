@@ -73,10 +73,8 @@ void * CWorkThreadPool<T>::func_workFunction(void* args)
 	{
 		cout << "[DEBUG] current work queue " << endl;
 
-		T* work = *threadPool->m_workQueue.waitAndPop();
-
-		//cout << "work: " << work << endl;
-		work->run();
+		shared_ptr<T*> work = threadPool->m_workQueue.waitAndPop();
+		(*work)->run();
 	}
 }
 

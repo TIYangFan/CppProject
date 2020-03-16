@@ -73,10 +73,10 @@ int CServerSocket::dealWithMessage()
 		close(connfd);
 		*/
 
+		CNetWork* work = new CNetWork();
 		printf("[DEBUG] get accept connfd %d\n", connfd);
-		CNetWork work;
-		work.setData((void*)connfd);
-		m_threadPool.addTask(&work);
+		work->setData((void*)connfd);
+		m_threadPool.addTask(work);
 		
 	}
 	
