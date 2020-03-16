@@ -3,18 +3,12 @@
   Validating architecture
   Starting remote build
   Compiling sources:
-  WorkThreadPool.cpp
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(47,1): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(47,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(47,1): warning :  ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(75,1): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(75,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(75,1): warning :  ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkQueue.cpp(92,22): warning : conversion to ‘int’ from ‘std::queue<std::shared_ptr<CMyWork*>, std::deque<std::shared_ptr<CMyWork*>, std::allocator<std::shared_ptr<CMyWork*> > > >::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkQueue.cpp(92,22): warning :   return m_queue.size();
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkQueue.cpp(92,22): warning :                       ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(57,1): warning : control reaches end of non-void function [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(57,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(57,1): warning :  ^
+  ClientSocket.cpp
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(7,7): warning : unused variable ‘m_recv_line’ [-Wunused-variable]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(7,7): warning :   char m_recv_line[MAXLINE];
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(7,7): warning :        ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(8,7): warning : unused variable ‘m_send_line’ [-Wunused-variable]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(8,7): warning :   char m_send_line[MAXLINE];
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(8,7): warning :        ^
   Linking objects
   ConsoleApplication.vcxproj -> C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\bin\x64\Debug\ConsoleApplication.out

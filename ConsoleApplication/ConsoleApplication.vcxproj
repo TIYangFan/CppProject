@@ -75,13 +75,17 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClCompile Include="ClientSocket.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ServerSocket.cpp" />
     <ClCompile Include="Thread.cpp" />
     <ClCompile Include="ThreadPool.cpp" />
     <ClCompile Include="WorkQueue.cpp" />
     <ClCompile Include="WorkThreadPool.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ClientSocket.h" />
+    <ClInclude Include="ServerSocket.h" />
     <ClInclude Include="Thread.h" />
     <ClInclude Include="ThreadPool.h" />
     <ClInclude Include="unistd.h" />

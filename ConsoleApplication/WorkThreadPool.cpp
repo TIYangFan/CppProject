@@ -75,7 +75,7 @@ void * CWorkThreadPool<T>::func_workFunction(void* args)
 }
 
 
-
+/*
 int main(int argc, char * argv[])
 {
 	CMyWork taskObj;
@@ -106,3 +106,4 @@ int main(int argc, char * argv[])
 	getchar();
 	return 0;
 }
+*/
