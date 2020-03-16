@@ -22,10 +22,13 @@ public:
 		m_ptrData = NULL;
 	}
 	virtual int run() = 0;
-	void setData(void* data);			//设置任务数据  
+	void setData(void* data)
+	{
+		m_ptrData = data;
+	}
 
 public:
-	virtual ~CWork() {}
+	~CWork() {}
 };
 
 template<typename T>

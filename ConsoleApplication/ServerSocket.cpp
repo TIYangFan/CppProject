@@ -1,4 +1,5 @@
 #include "ServerSocket.h"
+#include "WorkThreadPool.cpp"
 
 #define MAXLINE 4096
 
@@ -6,6 +7,7 @@ CServerSocket::CServerSocket()
 {
 	char m_buff[MAXLINE];
 	struct sockaddr_in m_servaddr;
+	CWorkThreadPool<CNetWork> m_threadPool(10);
 }
 
 CServerSocket::~CServerSocket()
@@ -60,6 +62,8 @@ int CServerSocket::dealWithMessage()
 			printf("[INFO] accpet socket error: %s(errno: %d)\n", strerror(errno), errno);
 			continue;
 		}
+
+		/*
 		char buff[MAXLINE];
 		int n = recv(connfd, buff, MAXLINE, 0);
 		buff[n] = '\0';
@@ -67,6 +71,13 @@ int CServerSocket::dealWithMessage()
 
 		send(connfd, buff, strlen(buff), 0);
 		close(connfd);
+		*/
+
+		printf("[DEBUG] get accept connfd %d\n", connfd);
+		CNetWork work;
+		work.setData((void*)connfd);
+		m_threadPool.addTask(&work);
+		
 	}
 	
 	return 0;
@@ -76,6 +87,23 @@ void CServerSocket::disconnect()
 {
 	close(m_listenfd);
 }
+
+inline int CNetWork::run()
+{
+	long connfd = (long)m_ptrData;
+	printf("[INFO] thread %d get conn %d\n", pthread_self(), connfd);
+
+	char buff[MAXLINE];
+	int n = recv(connfd, buff, MAXLINE, 0);
+	buff[n] = '\0';
+	printf("[MSG] thread %d recv msg from client: %s\n", pthread_self(), buff);
+
+	send(connfd, buff, strlen(buff), 0);
+	close(connfd);
+
+	return 0;
+}
+
 
 int main(int argc, char * argv[])
 {

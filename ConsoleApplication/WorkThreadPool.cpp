@@ -1,9 +1,11 @@
 ﻿#include "WorkThreadPool.h"
 
+/*
 void CWork::setData(void * data)
 {
 	m_ptrData = data;
 }
+*/
 
 class CMyWork : public CWork
 {
@@ -69,11 +71,14 @@ void * CWorkThreadPool<T>::func_workFunction(void* args)
 	CWorkThreadPool* threadPool = (CWorkThreadPool*)args;
 	while (!threadPool->m_shotdown)
 	{
+		cout << "[DEBUG] current work queue " << endl;
+
 		T* work = *threadPool->m_workQueue.waitAndPop();
+
+		//cout << "work: " << work << endl;
 		work->run();
 	}
 }
-
 
 /*
 int main(int argc, char * argv[])
