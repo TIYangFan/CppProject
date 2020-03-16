@@ -55,6 +55,11 @@ int CClientSocket::sendMessage()
 		return 0;
 	}
 
+	char buff[MAXLINE];
+	int n = recv(m_sockfd, buff, MAXLINE, 0);
+	buff[n] = '\0';
+	printf("[MSG] recv msg from server: %s\n", buff);
+
 	close(m_sockfd);
 
 	return 1;

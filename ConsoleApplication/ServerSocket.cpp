@@ -64,6 +64,8 @@ int CServerSocket::dealWithMessage()
 		int n = recv(connfd, buff, MAXLINE, 0);
 		buff[n] = '\0';
 		printf("[MSG] recv msg from client: %s\n", buff);
+
+		send(connfd, buff, strlen(buff), 0);
 		close(connfd);
 	}
 	

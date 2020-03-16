@@ -10,5 +10,8 @@ C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.c
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(8,7): warning : unused variable ‘m_send_line’ [-Wunused-variable]
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(8,7): warning :   char m_send_line[MAXLINE];
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(8,7): warning :        ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(59,41): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(59,41): warning :   int n = recv(m_sockfd, buff, MAXLINE, 0);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(59,41): warning :                                          ^
   Linking objects
   ConsoleApplication.vcxproj -> C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\bin\x64\Debug\ConsoleApplication.out
