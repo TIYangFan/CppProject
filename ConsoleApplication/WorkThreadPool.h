@@ -28,7 +28,7 @@ public:
 	}
 
 public:
-	~CWork() {}
+	virtual ~CWork() {}
 };
 
 template<typename T>
