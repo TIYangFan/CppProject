@@ -104,7 +104,7 @@ inline int CNetWork::run()
 	return 0;
 }
 
-
+/*
 int main(int argc, char * argv[])
 {
 	CServerSocket ss;
@@ -112,3 +112,4 @@ int main(int argc, char * argv[])
 	ss.dealWithMessage();
 	return 0;
 }
+*/

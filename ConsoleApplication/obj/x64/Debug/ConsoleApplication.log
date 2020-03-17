@@ -3,37 +3,50 @@
   Validating architecture
   Starting remote build
   Compiling sources:
-  ServerSocket.cpp
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning :  ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning :  ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(8,7): warning : unused variable ‘m_buff’ [-Wunused-variable]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(8,7): warning :   char m_buff[MAXLINE];
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(8,7): warning :        ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(9,21): warning : unused variable ‘m_servaddr’ [-Wunused-variable]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(9,21): warning :   struct sockaddr_in m_servaddr;
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(9,21): warning :                      ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(78,24): warning : cast to pointer from integer of different size [-Wint-to-pointer-cast]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(78,24): warning :    work->setData((void*)connfd);
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(78,24): warning :                         ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(97,39): warning : conversion to ‘int’ from ‘long int’ may alter its value [-Wconversion]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(97,39): warning :   int n = recv(connfd, buff, MAXLINE, 0);
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(97,39): warning :                                        ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(97,39): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(101,36): warning : conversion to ‘int’ from ‘long int’ may alter its value [-Wconversion]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(101,36): warning :   send(connfd, buff, strlen(buff), 0);
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(101,36): warning :                                     ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(102,14): warning : conversion to ‘int’ from ‘long int’ may alter its value [-Wconversion]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(102,14): warning :   close(connfd);
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(102,14): warning :               ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning :  ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning :  ^
+  Simplekvsvr.cpp
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(69,26): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(69,26): warning :    int size = strlen(value); // sizeof(*value) �������ָ���С�����ַ�����С
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(69,26): warning :                           ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(57,7): warning : unused variable ‘data’ [-Wunused-variable]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(57,7): warning :   char data[100];
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(57,7): warning :        ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(92,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(92,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(92,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(101,24): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(101,24): warning :    int size = strlen(key);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(101,24): warning :                         ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(132,27): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(132,27): warning :   cs->setValue("h", "hello");
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(132,27): warning :                            ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(132,27): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(133,27): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(133,27): warning :   cs->setValue("w", "world");
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(133,27): warning :                            ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(133,27): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(134,26): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(134,26): warning :   cs->setValue("y", "yang");
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(134,26): warning :                           ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(134,26): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(135,25): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(135,25): warning :   cs->setValue("f", "fan");
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(135,25): warning :                          ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(135,25): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(137,18): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(137,18): warning :   cs->getValue("h");
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(137,18): warning :                   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(138,18): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(138,18): warning :   cs->getValue("f");
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(138,18): warning :                   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(139,18): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(139,18): warning :   cs->getValue("h");
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(139,18): warning :                   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(141,28): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(141,28): warning :   cs->setValue("h", "huawei");
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(141,28): warning :                             ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(141,28): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(53,1): warning : control reaches end of non-void function [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(53,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(53,1): warning :  ^
   Linking objects
   ConsoleApplication.vcxproj -> C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\bin\x64\Debug\ConsoleApplication.out
