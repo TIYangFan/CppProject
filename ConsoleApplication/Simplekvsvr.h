@@ -29,7 +29,7 @@ public:
 
 	char* getValue(char* key);
 	bool setValue(char* key, char* value);
-	bool deleteValue();
+	bool deleteValue(char* key);
 	bool persist(char* key, long long val_offset);
 	bool loadData();
 	char dealWithDirtyData(char* key);

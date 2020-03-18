@@ -19,15 +19,24 @@ CSimplekvsvr::~CSimplekvsvr()
 	io_persist->close();
 }
 
+/*
+	Byte util
+*/
+bool GetBit(int i, char var) { return var & (1 << i); };
+void SetBit(int i, char* var) { *var |= 1 << i; };
+void ClearBit(int i, char var) { var &= ~(1 << i); };
+
 char* CSimplekvsvr::getValue(char* key)
 {
 	// first find at cache
+	/*
 	map<char*, char*>::iterator iter = m_cache.find(key);
 	if (iter != m_cache.end())
 	{
 		cout << "[INFO] get from cache" << endl;
 		return iter->second;
 	}
+	*/
 
 	if (!io_file->is_open())
 	{
@@ -101,9 +110,29 @@ bool CSimplekvsvr::setValue(char* key, char* value)
 	return true;
 }
 
-bool CSimplekvsvr::deleteValue()
+bool CSimplekvsvr::deleteValue(char* key)
 {
+	map<char*, long long>::iterator iter = m_db.find(key);
+	if (iter != m_db.end())
+	{
+		// change data dirty state
+		char state = 0;
+		long long offset = iter->second;
+		io_file->seekg(offset, ios::beg);
+		io_file->read((char*)&state, sizeof(state));
 
+		SetBit(0, &state);
+
+		io_file->seekp(offset, ios::beg);
+		io_file->write((char*)&state, sizeof(state));
+
+		// delete data in m_db
+		m_cache.erase(key);
+
+		// delete data in m_cache
+		m_db.erase(iter);
+	}
+	return true;
 }
 
 bool CSimplekvsvr::persist(char* key, long long val_offset)
@@ -164,13 +193,6 @@ bool CSimplekvsvr::loadData()
 
 	return true;
 }
-
-/*
-	Byte util
-*/
-bool GetBit(int i, char var) { return var & (1 << i); };
-void SetBit(int i, char* var) { *var |= 1 << i; };
-void ClearBit(int i, char var) { var &= ~(1 << i); };
 
 char CSimplekvsvr::dealWithDirtyData(char* key)
 {
@@ -255,6 +277,7 @@ bool CSimplekvsvr::reorganizeStorage()
 	}
 
 	// test
+	/*
 	io_copy_persist->seekg(0, ios::beg);
 	int zi = 0;
 	io_copy_persist->read((char*)&zi, sizeof(zi));
@@ -265,15 +288,25 @@ bool CSimplekvsvr::reorganizeStorage()
 	io_copy_persist->read((char*)&di, sizeof(di));
 	cout << "[DEBUG] get key: " << di << endl;
 
-	io_copy_file->seekg(oi, ios::beg);
+	io_file->seekg(oi, ios::beg);
 	char s = 0;
-	io_copy_file->read((char*)&s, sizeof(s));
+	io_file->read((char*)&s, sizeof(s));
 	int z = 0;
-	io_copy_file->read((char*)&z, sizeof(z));
+	io_file->read((char*)&z, sizeof(z));
 	char d[z + 1];
 	d[z] = '\0';
-	io_copy_file->read((char*)&d, sizeof(d));
+	io_file->read((char*)&d, sizeof(d));
 	cout << "[DEBUG] get val: " << d << endl;
+	*/
+
+	// change file ptr
+	io_file->close();
+	io_persist->close();
+
+	io_file = io_copy_file;
+	io_persist = io_copy_persist;
+
+	loadData();
 }
 
 /*
@@ -294,6 +327,7 @@ int main(int argc, char * argv[])
 	cs->setValue("h", "huawei");
 	cs->getValue("h");
 	cs->reorganizeStorage();
+	cs->getValue("h");
 
 	//cout << endl;
 	//cs->getPersistFileContent();
