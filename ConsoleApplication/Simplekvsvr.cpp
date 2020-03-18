@@ -61,7 +61,7 @@ bool CSimplekvsvr::setValue(char* key, char* value)
 		cout << "[INFO] file open successfully." << endl;
 
 		io_file->seekg(0, ios::end);
-		long start = io_file->tellg();
+		long long start = io_file->tellg();
 
 		cout << "[DEBUG] e: " << start << endl;
 
@@ -120,10 +120,45 @@ void CSimplekvsvr::getPersistFileContent()
 	long long val_offset = 0;
 	io_persist->read((char*)&val_offset, sizeof(val_offset));
 
-	//char* key;
-	//io_persist->read(key, size);
+	char key[size + 1];
+	key[size] = '\0';
+	io_persist->read(key, size);
 
-	cout << "size: " << size << " off:" << val_offset << " key: " << endl;
+	cout << "size: " << size << " off:" << val_offset << " key: " << key << endl;
+
+	size = 0;
+	io_persist->read((char*)&size, sizeof(size));
+
+	val_offset = 0;
+	io_persist->read((char*)&val_offset, sizeof(val_offset));
+
+	key[size] = '\0';
+	io_persist->read(key, size);
+
+	cout << "size: " << size << " offset:" << val_offset << " key: " << key << endl;
+}
+
+bool CSimplekvsvr::loadData()
+{
+	io_persist->seekg(0, ios::beg);
+	while (!io_persist->eof())
+	{
+		int size = 0;
+		io_persist->read((char*)&size, sizeof(size));
+
+		long long val_offset = 0;
+		io_persist->read((char*)&val_offset, sizeof(val_offset));
+
+		char key[size + 1];
+		key[size] = '\0';
+		io_persist->read(key, size);
+
+		cout << "size: " << size << " offset:" << val_offset << " key: " << key << endl;
+
+		m_db[key] = val_offset;
+	}
+
+	return true;
 }
 
 int main(int argc, char * argv[])
@@ -141,7 +176,8 @@ int main(int argc, char * argv[])
 	cs->setValue("h", "huawei");
 
 	cout << endl;
-	cs->getPersistFileContent();
+	//cs->getPersistFileContent();
+	cs->loadData();
 
 	getchar();
 	return 0;

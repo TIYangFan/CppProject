@@ -17,10 +17,12 @@ public:
 	bool setValue(char* key, char* value);
 	bool deleteValue();
 	bool persist(char* key, long long val_offset);
+	bool loadData();
+
 	void getPersistFileContent();
 
 private:
-	map<char*, long> m_db;
+	map<char*, long long> m_db;
 	map<char*, char*> m_cache; // TODO: LRU
 
 	fstream* io_file;
