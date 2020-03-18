@@ -7,6 +7,20 @@
 
 using namespace std;
 
+struct SVal
+{	
+	char type;
+	int val_len;
+	char* val;
+};
+
+struct SKey
+{
+	int key_len;
+	long long val_offset;
+	char* key;
+};
+
 class CSimplekvsvr
 {
 public:
@@ -19,6 +33,7 @@ public:
 	bool persist(char* key, long long val_offset);
 	bool loadData();
 	char dealWithDirtyData(char* key);
+	bool reorganizeStorage();
 
 	void getPersistFileContent();
 

@@ -145,7 +145,7 @@ void CSimplekvsvr::getPersistFileContent()
 bool CSimplekvsvr::loadData()
 {
 	io_persist->seekg(0, ios::beg);
-	while (!io_persist->eof())
+	while (io_persist->peek() != EOF)
 	{
 		int size = 0;
 		io_persist->read((char*)&size, sizeof(size));
@@ -202,6 +202,80 @@ char CSimplekvsvr::dealWithDirtyData(char* key)
 	return old_state; // return old state
 }
 
+bool CSimplekvsvr::reorganizeStorage()
+{
+	fstream* io_copy_file = new fstream();
+	io_copy_file->open("file1.dat", ios::in | ios::out | ios::binary | ios::trunc);
+
+	fstream* io_copy_persist = new fstream();
+	io_copy_persist->open("persist1.dat", ios::in | ios::out | ios::binary | ios::trunc);
+
+	io_persist->seekg(0, ios::beg);
+	io_file->seekg(0, ios::beg);
+
+	int size_of_key = 0;
+	int size_of_val = 0;
+	char state = 0;
+	long long val_offset = 0;
+
+	while (io_persist->peek() != EOF && io_file->peek() != EOF) // use "peek() == EOF" to determine if the file is at the end.(don't use eof())
+	{
+		io_persist->read((char*)&size_of_key, sizeof(size_of_key));
+		io_persist->read((char*)&val_offset, sizeof(val_offset));
+
+		io_file->seekg(val_offset, ios::beg);
+		io_file->read((char*)&state, sizeof(state));
+
+		if (!GetBit(0, state)) // not dirty data
+		{
+			// TODO: copy items from file.dat and persist.dat to new files;
+			io_file->read((char*)&size_of_val, sizeof(size_of_val));
+			char val[size_of_val];
+			io_file->read((char*)&val, size_of_val);
+
+			char key[size_of_key];
+			io_persist->read((char*)&key, size_of_key);
+			
+			// write to new files
+			val_offset = io_copy_file->tellg();
+			io_copy_file->write((char*)&state, sizeof(state));
+			io_copy_file->write((char*)&size_of_val, sizeof(size_of_val));
+			io_copy_file->write((char*)&val, size_of_val);
+
+			io_copy_persist->write((char*)&size_of_key, sizeof(size_of_key));
+			io_copy_persist->write((char*)&val_offset, sizeof(val_offset));
+			io_copy_persist->write((char*)&key, size_of_key);
+
+			printf("[INFO] copy to file: state %d, length %d, value %s \n", state, size_of_val, val);
+		}
+		else
+		{
+			io_persist->seekg(size_of_key, ios::cur);
+		}
+	}
+
+	// test
+	io_copy_persist->seekg(0, ios::beg);
+	int zi = 0;
+	io_copy_persist->read((char*)&zi, sizeof(zi));
+	long long oi = 0;
+	io_copy_persist->read((char*)&oi, sizeof(oi));
+	char di[zi + 1];
+	di[zi] = '\0';
+	io_copy_persist->read((char*)&di, sizeof(di));
+	cout << "[DEBUG] get key: " << di << endl;
+
+	io_copy_file->seekg(oi, ios::beg);
+	char s = 0;
+	io_copy_file->read((char*)&s, sizeof(s));
+	int z = 0;
+	io_copy_file->read((char*)&z, sizeof(z));
+	char d[z + 1];
+	d[z] = '\0';
+	io_copy_file->read((char*)&d, sizeof(d));
+	cout << "[DEBUG] get val: " << d << endl;
+}
+
 /*
 	write 先写入 buffer 当切换至 read 时才会将数据从 Buffer 写入文件
 */
@@ -219,6 +293,7 @@ int main(int argc, char * argv[])
 
 	cs->setValue("h", "huawei");
 	cs->getValue("h");
+	cs->reorganizeStorage();
 
 	//cout << endl;
 	//cs->getPersistFileContent();
