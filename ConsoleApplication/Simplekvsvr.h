@@ -18,6 +18,7 @@ public:
 	bool deleteValue();
 	bool persist(char* key, long long val_offset);
 	bool loadData();
+	char dealWithDirtyData(char* key);
 
 	void getPersistFileContent();
 

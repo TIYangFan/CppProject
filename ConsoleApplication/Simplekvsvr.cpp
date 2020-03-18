@@ -37,19 +37,20 @@ char* CSimplekvsvr::getValue(char* key)
 
 	io_file->seekg(m_db[key], ios::beg);
 
+	char state = 0;
+	io_file->read((char*)&state, sizeof(state));
+
 	int size = 0;
 	io_file->read((char*)&size, sizeof(size));
 
 	char value[size + 1];
 	value[size] = '\0'; // 因为本地文件中未保存结尾 \0 终止符，因此需要手动添加终止符
 
-	cout << "[INFO] get size: " << size << endl;
-
 	io_file->read(value, size);
 
 	m_cache[key] = value; // add cache
 
-	cout << value << endl;
+	printf("[INFO] read from file: state %d, length %d, value %s \n", state, size, value);
 }
 
 bool CSimplekvsvr::setValue(char* key, char* value)
@@ -60,14 +61,28 @@ bool CSimplekvsvr::setValue(char* key, char* value)
 	{
 		cout << "[INFO] file open successfully." << endl;
 
+		char state = dealWithDirtyData(key); // return old state or create new state
+
 		io_file->seekg(0, ios::end);
 		long long start = io_file->tellg();
 
-		cout << "[DEBUG] e: " << start << endl;
-
 		m_db[key] = start;
+
 		int size = strlen(value); // sizeof(*value) 计算的是指针大小而非字符串大小
 
+		/*
+				+--------------------+--------------------+--------------------+
+				| Type(State) 1Byte  | Length（int）4Byte | Value (Length Byte)|
+				+--------------------+--------------------+--------------------+
+
+				Type : 0000 0000
+				the last bit of type mean this data is dirty or not
+		 */
+
+		printf("[INFO] begin write to file: state %d, length %d, value %s \n", state, size, value);
+
+		// io_file->seekp(0, ios::end);
+		io_file->write((char*)&state, sizeof(state));
 		io_file->write((char*)&size, sizeof(size));
 		io_file->write(value, size);
 
@@ -125,17 +140,6 @@ void CSimplekvsvr::getPersistFileContent()
 	io_persist->read(key, size);
 
 	cout << "size: " << size << " off:" << val_offset << " key: " << key << endl;
-
-	size = 0;
-	io_persist->read((char*)&size, sizeof(size));
-
-	val_offset = 0;
-	io_persist->read((char*)&val_offset, sizeof(val_offset));
-
-	key[size] = '\0';
-	io_persist->read(key, size);
-
-	cout << "size: " << size << " offset:" << val_offset << " key: " << key << endl;
 }
 
 bool CSimplekvsvr::loadData()
@@ -161,23 +165,64 @@ bool CSimplekvsvr::loadData()
 	return true;
 }
 
+/*
+	Byte util
+*/
+bool GetBit(int i, char var) { return var & (1 << i); };
+void SetBit(int i, char* var) { *var |= 1 << i; };
+void ClearBit(int i, char var) { var &= ~(1 << i); };
+
+char CSimplekvsvr::dealWithDirtyData(char* key)
+{
+	char old_state = 0;
+	map<char*, long long>::iterator iter = m_db.find(key);
+
+	// exist dirty data
+	if (iter != m_db.end())
+	{
+		cout << "[INFO] find dirty data: " << iter->second << endl;
+		
+		int offset = iter->second;
+
+		io_file->seekg(offset, ios::beg);
+		io_file->read((char*)&old_state, sizeof(old_state));
+
+		cout << "old_state: " << old_state << endl;
+
+		char new_state = old_state;
+
+		SetBit(0, &new_state); // change dirty bit
+
+		cout << "new_state: " << old_state << endl;
+
+		io_file->seekp(offset, ios::beg);
+		io_file->write((char*)&new_state, sizeof(new_state));
+	}
+
+	return old_state; // return old state
+}
+
+/*
+	write 先写入 buffer 当切换至 read 时才会将数据从 Buffer 写入文件
+*/
 int main(int argc, char * argv[])
 {
 	CSimplekvsvr* cs = new CSimplekvsvr();
 	cs->setValue("h", "hello");
-	cs->setValue("w", "world");
-	cs->setValue("y", "yang");
-	cs->setValue("f", "fan");
+	//cs->setValue("w", "world");
+	//cs->setValue("y", "yang");
+	//cs->setValue("f", "fan");
 
-	cs->getValue("h");
-	cs->getValue("f");
-	cs->getValue("h");
+	//cs->getValue("w");
+	//cs->getValue("f");
+	//cs->getValue("h");
 
 	cs->setValue("h", "huawei");
+	cs->getValue("h");
 
-	cout << endl;
+	//cout << endl;
 	//cs->getPersistFileContent();
-	cs->loadData();
+	//cs->loadData();
 
 	getchar();
 	return 0;
