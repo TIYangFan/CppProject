@@ -7,18 +7,44 @@
 
 using namespace std;
 
+/*
+		+--------------------+--------------------+--------------------+
+		| Type(State) 1Byte  | Length£¨int£©4Byte | Value (Length Byte)|
+		+--------------------+--------------------+--------------------+
+
+		Type : 0000 0000
+		the last bit of type mean this data is dirty or not
+ */
 struct SVal
 {	
-	char type;
-	int val_len;
-	char* val;
+	char c_state;	// state of value
+	int i_val_len;	// length of value
+	char* s_val;	// content of value
+
+	SVal();
+	SVal(char* val);
+	SVal(char state, char* val);
+
+	long long write(fstream* io_file);	// append write AND return value offset
+	bool read(fstream* io_file, int offset);	// 
+	bool changeState(fstream* io_file, long long val_offset, int index);
 };
 
 struct SKey
 {
-	int key_len;
 	long long val_offset;
+	int key_len;
 	char* key;
+
+	bool write(struct SKey key);
+	bool read();
+	bool tell();
+};
+
+struct KVio
+{
+	bool write(fstream* io_file, char* data, int len);
+	bool read();
 };
 
 class CSimplekvsvr
