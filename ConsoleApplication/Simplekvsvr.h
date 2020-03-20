@@ -7,6 +7,14 @@
 
 using namespace std;
 
+struct ptrCmp
+{
+	bool operator()(const char * s1, const char * s2) const
+	{
+		return strcmp(s1, s2) < 0;
+	}
+};
+
 /*
 		+--------------------+--------------------+--------------------+
 		| Type(State) 1Byte  | Length£¨int£©4Byte | Value (Length Byte)|
@@ -27,24 +35,31 @@ struct SVal
 
 	long long write(fstream* io_file);	// append write AND return value offset
 	bool read(fstream* io_file, int offset);	// 
-	bool changeState(fstream* io_file, long long val_offset, int index);
+	char changeState(fstream* io_file, long long val_offset, int index);	// return old state
 };
 
+
+/*
+		+--------------------+--------------------+--------------------+
+		| Value Offset 8Byte | Length£¨int£©4Byte | Key (Length Byte)  |
+		+--------------------+--------------------+--------------------+
+
+		Type : 0000 0000
+		the last bit of type mean this data is dirty or not
+ */
 struct SKey
 {
 	long long val_offset;
-	int key_len;
-	char* key;
+	int i_key_len;
+	char* s_key;
 
-	bool write(struct SKey key);
-	bool read();
-	bool tell();
-};
+	SKey();
+	SKey(char* key);
+	SKey(long long offset, char* key);
 
-struct KVio
-{
-	bool write(fstream* io_file, char* data, int len);
-	bool read();
+	bool write(fstream* io_persist);
+	bool read(fstream* io_persist);
+	bool readAll(fstream* io_persist, map<char*, long long, ptrCmp>* db);
 };
 
 class CSimplekvsvr
@@ -56,16 +71,16 @@ public:
 	char* getValue(char* key);
 	bool setValue(char* key, char* value);
 	bool deleteValue(char* key);
-	bool persist(char* key, long long val_offset);
+//	bool persist(char* key, long long val_offset);
 	bool loadData();
-	char dealWithDirtyData(char* key);
 	bool reorganizeStorage();
 
-	void getPersistFileContent();
+	bool getAllValueItemsInFile();
+	bool getAllKeyItemsInPersist();
 
 private:
-	map<char*, long long> m_db;
-	map<char*, char*> m_cache; // TODO: LRU
+	map<char*, long long, ptrCmp> m_db;
+	map<char*, char*, ptrCmp> m_cache; // TODO: LRU
 
 	fstream* io_file;
 	fstream* io_persist;

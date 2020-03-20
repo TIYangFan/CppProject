@@ -56,18 +56,83 @@ bool SVal::read(fstream* io_file, int offset)
 	printf("[INFO] read from file: state %d, length %d, value %s \n", c_state, i_val_len, s_val);
 }
 
-bool SVal::changeState(fstream* io_file, long long val_offset, int index)
+char SVal::changeState(fstream* io_file, long long val_offset, int index)
 {
-	char state = 0;
+	char old_state = 0;
 	io_file->seekg(val_offset, ios::beg);
-	io_file->read((char*)&state, sizeof(state));
+	io_file->read((char*)&old_state, sizeof(old_state));
 
-	SetBit(index, &state);
+	char new_state = old_state;
+	SetBit(index, &new_state);
 	io_file->seekp(val_offset, ios::beg);
-	io_file->write((char*)&state, sizeof(state));
+	io_file->write((char*)&new_state, sizeof(new_state));
 
-	return true;
+	return old_state;
 }
+
+SKey::SKey()
+{
+
+}
+
+SKey::SKey(char* key)
+{
+	val_offset = 0;
+	i_key_len = strlen(key);
+	s_key = key;
+}
+
+SKey::SKey(long long offset, char* key)
+{
+	val_offset = offset;
+	i_key_len = strlen(key);
+	s_key = key;
+}
+
+bool SKey::write(fstream* io_persist)
+{
+	printf("[INFO] write to persist: state %d, length %d, value %s \n", val_offset, i_key_len, s_key);
+
+	io_persist->seekg(0, ios::end);	// append write
+	long long offset = io_persist->tellg();
+
+	io_persist->write((char*)&val_offset, sizeof(val_offset));
+	io_persist->write((char*)&i_key_len, sizeof(i_key_len));
+	io_persist->write(s_key, i_key_len);
+}
+
+bool SKey::read(fstream* io_persist)
+{
+	io_persist->read((char*)&val_offset, sizeof(val_offset));
+	io_persist->read((char*)&i_key_len, sizeof(i_key_len));
+
+	s_key = new char[i_key_len + 1];
+	s_key[i_key_len] = '\0';
+	io_persist->read(s_key, i_key_len);
+}
+
+bool SKey::readAll(fstream* io_persist, map<char*, long long, ptrCmp>* db)
+{
+	io_persist->seekg(0, ios::beg);
+	while (io_persist->peek() != EOF)
+	{
+		long long offset = 0;
+		io_persist->read((char*)&offset, sizeof(offset));
+		int key_len = 0;
+		io_persist->read((char*)&key_len, sizeof(key_len));
+
+		char* key = new char[key_len + 1];
+		key[key_len] = '\0';
+		io_persist->read(key, key_len);
+
+		printf("[INFO] read from persist: state %d, length %d, value %s \n", offset, key_len, key);
+
+		(*db)[key] = offset;
+
+		cout << "test: " << (*db)[key] << endl;
+	}
+}
+
 
 CSimplekvsvr::CSimplekvsvr()
 {
@@ -119,6 +184,7 @@ char* CSimplekvsvr::getValue(char* key)
 			return val.s_val;
 		}
 	}
+
 	return NULL;
 }
 
@@ -129,20 +195,26 @@ bool CSimplekvsvr::setValue(char* key, char* value)
 	{
 		cout << "[INFO] file open successfully." << endl;
 
-		// store value to file
-		char state = dealWithDirtyData(key); // return old state or create new state
-		struct SVal val(state, value);
+		struct SVal val(value);
+		map<char*, long long>::iterator iter = m_db.find(key);
+		char old_state = 0;
+		if (iter != m_db.end())
+		{
+			old_state = val.changeState(io_file, iter->second, 0);	// delete old value in file
+		}
+		val.c_state = old_state;	// set value state
 		m_db[key] = val.write(io_file);
 
-		// persist
-		persist(key, m_db[key]);
+		// persist Key
+		struct SKey s_key(m_db[key], key);
+		s_key.write(io_persist);
 
 		// update cache
-		map<char*, char*>::iterator iter = m_cache.find(key);
-		if (iter != m_cache.end())
+		map<char*, char*>::iterator cache_iter = m_cache.find(key);
+		if (cache_iter != m_cache.end())
 		{
 			cout << "[INFO] update cache" << endl;
-			iter->second = value;
+			cache_iter->second = value;
 		}
 	}
 
@@ -167,93 +239,11 @@ bool CSimplekvsvr::deleteValue(char* key)
 	return true;
 }
 
-bool CSimplekvsvr::persist(char* key, long long val_offset)
-{
-	if (io_persist->is_open())
-	{
-		cout << "[DEBUG] key: " << key << " off: " << val_offset << endl;
-
-		// 1. key length
-		int size = strlen(key);
-		io_persist->write((char*)&size, sizeof(size));
-
-		// 2. long long value offset
-		io_persist->write((char*)&val_offset, sizeof(val_offset));
-
-		// 3. key
-		io_persist->write(key, size);
-	}
-	return true;
-}
-
-void CSimplekvsvr::getPersistFileContent()
-{
-	io_persist->seekg(0, ios::beg);
-
-	int size = 0;
-	io_persist->read((char*)&size, sizeof(size));
-
-	long long val_offset = 0;
-	io_persist->read((char*)&val_offset, sizeof(val_offset));
-
-	char key[size + 1];
-	key[size] = '\0';
-	io_persist->read(key, size);
-
-	cout << "size: " << size << " off:" << val_offset << " key: " << key << endl;
-}
-
 bool CSimplekvsvr::loadData()
 {
-	io_persist->seekg(0, ios::beg);
-	while (io_persist->peek() != EOF)
-	{
-		int size = 0;
-		io_persist->read((char*)&size, sizeof(size));
-
-		long long val_offset = 0;
-		io_persist->read((char*)&val_offset, sizeof(val_offset));
-
-		char key[size + 1];
-		key[size] = '\0';
-		io_persist->read(key, size);
-
-		cout << "size: " << size << " offset:" << val_offset << " key: " << key << endl;
-
-		m_db[key] = val_offset;
-	}
-
+	struct SKey s_key;
+	s_key.readAll(io_persist, &m_db);
 	return true;
-}
-
-char CSimplekvsvr::dealWithDirtyData(char* key)
-{
-	char old_state = 0;
-	map<char*, long long>::iterator iter = m_db.find(key);
-
-	// exist dirty data
-	if (iter != m_db.end())
-	{
-		cout << "[INFO] find dirty data: " << iter->second << endl;
-		
-		int offset = iter->second;
-
-		io_file->seekg(offset, ios::beg);
-		io_file->read((char*)&old_state, sizeof(old_state));
-
-		cout << "old_state: " << old_state << endl;
-
-		char new_state = old_state;
-
-		SetBit(0, &new_state); // change dirty bit
-
-		cout << "new_state: " << old_state << endl;
-
-		io_file->seekp(offset, ios::beg);
-		io_file->write((char*)&new_state, sizeof(new_state));
-	}
-
-	return old_state; // return old state
 }
 
 bool CSimplekvsvr::reorganizeStorage()
@@ -264,72 +254,30 @@ bool CSimplekvsvr::reorganizeStorage()
 	fstream* io_copy_persist = new fstream();
 	io_copy_persist->open("persist1.dat", ios::in | ios::out | ios::binary | ios::trunc);
 
+	// init file ptr
 	io_persist->seekg(0, ios::beg);
 	io_file->seekg(0, ios::beg);
 
-	int size_of_key = 0;
-	int size_of_val = 0;
-	char state = 0;
-	long long val_offset = 0;
-
 	while (io_persist->peek() != EOF && io_file->peek() != EOF) // use "peek() == EOF" to determine if the file is at the end.(don't use eof())
 	{
-		io_persist->read((char*)&size_of_key, sizeof(size_of_key));
-		io_persist->read((char*)&val_offset, sizeof(val_offset));
+		struct SKey key;
+		key.read(io_persist);
 
-		io_file->seekg(val_offset, ios::beg);
-		io_file->read((char*)&state, sizeof(state));
+		struct SVal val;
+		val.read(io_file, key.val_offset);
 
-		if (!GetBit(0, state)) // not dirty data
-		{
-			// TODO: copy items from file.dat and persist.dat to new files;
-			io_file->read((char*)&size_of_val, sizeof(size_of_val));
-			char val[size_of_val];
-			io_file->read((char*)&val, size_of_val);
-
-			char key[size_of_key];
-			io_persist->read((char*)&key, size_of_key);
-			
+		if (!GetBit(0, val.c_state)) // not dirty data
+		{	
 			// write to new files
-			val_offset = io_copy_file->tellg();
-			io_copy_file->write((char*)&state, sizeof(state));
-			io_copy_file->write((char*)&size_of_val, sizeof(size_of_val));
-			io_copy_file->write((char*)&val, size_of_val);
+			struct SKey c_key(key.val_offset, key.s_key);
+			c_key.write(io_copy_persist);
 
-			io_copy_persist->write((char*)&size_of_key, sizeof(size_of_key));
-			io_copy_persist->write((char*)&val_offset, sizeof(val_offset));
-			io_copy_persist->write((char*)&key, size_of_key);
+			struct SVal c_val(val.c_state, val.s_val);
+			c_val.write(io_copy_file);
 
-			printf("[INFO] copy to file: state %d, length %d, value %s \n", state, size_of_val, val);
-		}
-		else
-		{
-			io_persist->seekg(size_of_key, ios::cur);
+			printf("[DEBUG] copy to file: state %d, length %d, value %s \n", c_val.c_state, c_val.i_val_len, c_val.s_val);
 		}
 	}
-
-	// test
-	/*
-	io_copy_persist->seekg(0, ios::beg);
-	int zi = 0;
-	io_copy_persist->read((char*)&zi, sizeof(zi));
-	long long oi = 0;
-	io_copy_persist->read((char*)&oi, sizeof(oi));
-	char di[zi + 1];
-	di[zi] = '\0';
-	io_copy_persist->read((char*)&di, sizeof(di));
-	cout << "[DEBUG] get key: " << di << endl;
-
-	io_file->seekg(oi, ios::beg);
-	char s = 0;
-	io_file->read((char*)&s, sizeof(s));
-	int z = 0;
-	io_file->read((char*)&z, sizeof(z));
-	char d[z + 1];
-	d[z] = '\0';
-	io_file->read((char*)&d, sizeof(d));
-	cout << "[DEBUG] get val: " << d << endl;
-	*/
 
 	// change file ptr
 	io_file->close();
@@ -341,26 +289,48 @@ bool CSimplekvsvr::reorganizeStorage()
 	loadData();
 }
 
+// for test
+bool CSimplekvsvr::getAllValueItemsInFile()
+{
+	io_file->seekg(0, ios::beg);
+	while (io_file->peek() != EOF)
+	{
+		char c_state = 0;
+		io_file->read((char*)&c_state, sizeof(c_state));
+		int i_val_len = 0;
+		io_file->read((char*)&i_val_len, sizeof(i_val_len));
+
+		char* s_val = new char[i_val_len + 1];
+		s_val[i_val_len] = '\0';
+		io_file->read(s_val, i_val_len);
+
+		printf("[DEBUG] read from file: state %d, length %d, value %s \n", c_state, i_val_len, s_val);
+	}
+}
+
+bool CSimplekvsvr::getAllKeyItemsInPersist()
+{
+	io_persist->seekg(0, ios::beg);
+	while (io_persist->peek() != EOF)
+	{
+		long long val_offset = 0;
+		io_persist->read((char*)&val_offset, sizeof(val_offset));
+		int i_key_len = 0;
+		io_persist->read((char*)&i_key_len, sizeof(i_key_len));
+
+		char* s_key = new char[i_key_len + 1];
+		s_key[i_key_len] = '\0';
+		io_persist->read(s_key, i_key_len);
+
+		printf("[DEBUG] read from file: val_offset %d, length %d, key %s \n", val_offset, i_key_len, s_key);
+	}
+}
+
 /*
 	write 先写入 buffer 当切换至 read 时才会将数据从 Buffer 写入文件
 */
 int main(int argc, char * argv[])
 {
-
-	/*
-	struct SVal val("hello");
-
-	fstream* io_file = new fstream();
-	io_file->open("file.dat", ios::in | ios::out | ios::binary | ios::trunc);
-	val.write(io_file);
-
-	struct SVal val1;
-	io_file->seekg(0, ios::beg);
-	val1.read(io_file);
-	cout << val1.c_state << " " << val1.i_val_len << " " << val1.s_val << endl;
-	*/
-
-	 
 	CSimplekvsvr* cs = new CSimplekvsvr();
 	cs->setValue("h", "hello");
 	//cs->setValue("w", "world");
@@ -371,16 +341,21 @@ int main(int argc, char * argv[])
 	//cs->getValue("f");
 	//cs->getValue("h");
 
-	//cs->setValue("h", "huawei");
 	cs->getValue("h");
-	cs->deleteValue("h");
+	cs->setValue("h", "huawei");
+	cs->getValue("h");
+	cs->setValue("h", "haha");
 	cs->getValue("h");
 
-	//cs->reorganizeStorage();
-	//cs->getValue("h");
+	cout << "---------------Before----------------" << endl;
+ 	cs->getAllValueItemsInFile();
+	cs->getAllKeyItemsInPersist();
+	cs->reorganizeStorage();
 
-	//cout << endl;
-	//cs->getPersistFileContent();
+	cout << "---------------After----------------" << endl;
+	cs->getAllValueItemsInFile();
+	cs->getAllKeyItemsInPersist();
+
 	//cs->loadData();
 
 	getchar();
