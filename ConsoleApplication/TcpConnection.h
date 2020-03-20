@@ -34,6 +34,25 @@ public:
 		const InetAddress& peerAddr);
 	~TcpConnection();
 
+	const InetAddress& localAddress() const { return localAddr_; }
+	const InetAddress& peerAddress() const { return peerAddr_; }
+	bool connected() const { return state_ == kConnected; }
+
+	void send(const void* message, int len);
+	void send(const string& message);
+	void send(Buffer* message);	// this will swap data
+
+	void shutdown();	// not thread safe, no simultaneous calling
+	void foreClose();
+
+	void setConnectionCallback(const ConnectionCallback& cb) { connectionCallback_ = cb; }
+	void setMessageCallback(const MessageCallback& cb) { messageCallback_ = cb; }
+	void setCloseCallback(const CloseCallback& cb) { closeCallback_ = cb; }
+	void setErrorCallback(const ErrorCallback& cb) { errorCallback_ = cb; }
+
+	Buffer* inputBuffer() { return &inputBuffer_; }
+	Buffer* outputBuffer() { return &outputBuffer_; }
+
 private:
 	enum StateE
 	{
