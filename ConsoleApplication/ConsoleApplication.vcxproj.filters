@@ -25,6 +25,12 @@
     <ClCompile Include="WorkThreadPool.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="EventLoop.cpp">
+      <Filter>TcpNetwork\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="TcpConnection.cpp">
+      <Filter>TcpNetwork\Source File</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClientSocket.h">
@@ -51,6 +57,12 @@
     <ClInclude Include="WorkThreadPool.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="EventLoop.h">
+      <Filter>TcpNetwork\Head File</Filter>
+    </ClInclude>
+    <ClInclude Include="TcpConnection.h">
+      <Filter>TcpNetwork\Head File</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="头文件">
@@ -61,6 +73,15 @@
     </Filter>
     <Filter Include="资源文件">
       <UniqueIdentifier>{d3d1d542-f2ec-45a9-9df4-11f55d517ac0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TcpNetwork">
+      <UniqueIdentifier>{b37b6bfc-4034-48b7-badb-669b06d249b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TcpNetwork\Head File">
+      <UniqueIdentifier>{d68f6de7-7d71-4c6d-bfbb-49dfeb681574}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TcpNetwork\Source File">
+      <UniqueIdentifier>{553e6429-a6ce-4861-811b-51b16d4dbd1c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

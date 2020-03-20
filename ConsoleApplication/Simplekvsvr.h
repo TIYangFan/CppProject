@@ -75,6 +75,7 @@ public:
 	bool loadData();
 	bool reorganizeStorage();
 
+	bool getStatistics();
 	bool getAllValueItemsInFile();
 	bool getAllKeyItemsInPersist();
 
@@ -84,5 +85,19 @@ private:
 
 	fstream* io_file;
 	fstream* io_persist;
+
+	/*
+	 * TODO: use Proxy Mode to statistics (should first extracting the data access layer)
+	 */
+	int key_count;
+
+	int mem_size;
+	int file_size;
+
+	int hit_count;
+	int miss_count;
+
+	int cache_hit_count;
+	int cache_miss_count;
 };
 

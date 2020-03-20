@@ -289,6 +289,11 @@ bool CSimplekvsvr::reorganizeStorage()
 	loadData();
 }
 
+bool CSimplekvsvr::getStatistics()
+{
+
+}
+
 // for test
 bool CSimplekvsvr::getAllValueItemsInFile()
 {
