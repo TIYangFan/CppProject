@@ -36,7 +36,7 @@ private:
 		kWriteEvent
 	};
 
-	const int	fd_;
+	const int	fd_;		// socketfd
 	int			events_;	//当前需要检测的事件
 	int			revents_;	//处理后的事件
 };

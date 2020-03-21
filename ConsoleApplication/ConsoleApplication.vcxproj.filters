@@ -31,6 +31,21 @@
     <ClCompile Include="TcpConnection.cpp">
       <Filter>TcpNetwork\Source File</Filter>
     </ClCompile>
+    <ClCompile Include="Timestamp.cpp">
+      <Filter>TcpNetwork\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="InetAddress.cpp">
+      <Filter>TcpNetwork\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractInetAddress.cpp">
+      <Filter>TcpNetwork\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Channel.cpp">
+      <Filter>TcpNetwork\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Epoll.cpp">
+      <Filter>TcpNetwork\Epoll</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClientSocket.h">
@@ -63,6 +78,21 @@
     <ClInclude Include="TcpConnection.h">
       <Filter>TcpNetwork\Head File</Filter>
     </ClInclude>
+    <ClInclude Include="Timestamp.h">
+      <Filter>TcpNetwork\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="InetAddress.h">
+      <Filter>TcpNetwork\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractInetAddress.h">
+      <Filter>TcpNetwork\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Channel.h">
+      <Filter>TcpNetwork\Head File</Filter>
+    </ClInclude>
+    <ClInclude Include="Epoll.h">
+      <Filter>TcpNetwork\Epoll</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="头文件">
@@ -82,6 +112,12 @@
     </Filter>
     <Filter Include="TcpNetwork\Source File">
       <UniqueIdentifier>{553e6429-a6ce-4861-811b-51b16d4dbd1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TcpNetwork\Util">
+      <UniqueIdentifier>{44f18275-1298-4a2d-8cef-438e4a5ff840}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TcpNetwork\Epoll">
+      <UniqueIdentifier>{94dfb2f1-e13f-436e-9d96-cba3e9012d44}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

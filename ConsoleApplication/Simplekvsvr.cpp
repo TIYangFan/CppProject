@@ -334,6 +334,7 @@ bool CSimplekvsvr::getAllKeyItemsInPersist()
 /*
 	write 先写入 buffer 当切换至 read 时才会将数据从 Buffer 写入文件
 */
+/*
 int main(int argc, char * argv[])
 {
 	CSimplekvsvr* cs = new CSimplekvsvr();
@@ -366,3 +367,4 @@ int main(int argc, char * argv[])
 	getchar();
 	return 0;
 }
+*/

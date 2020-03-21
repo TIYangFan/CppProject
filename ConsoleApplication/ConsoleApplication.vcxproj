@@ -75,25 +75,35 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClCompile Include="AbstractInetAddress.cpp" />
+    <ClCompile Include="Channel.cpp" />
     <ClCompile Include="ClientSocket.cpp" />
+    <ClCompile Include="Epoll.cpp" />
     <ClCompile Include="EventLoop.cpp" />
+    <ClCompile Include="InetAddress.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ServerSocket.cpp" />
     <ClCompile Include="Simplekvsvr.cpp" />
     <ClCompile Include="TcpConnection.cpp" />
     <ClCompile Include="Thread.cpp" />
     <ClCompile Include="ThreadPool.cpp" />
+    <ClCompile Include="Timestamp.cpp" />
     <ClCompile Include="WorkQueue.cpp" />
     <ClCompile Include="WorkThreadPool.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractInetAddress.h" />
+    <ClInclude Include="Channel.h" />
     <ClInclude Include="ClientSocket.h" />
+    <ClInclude Include="Epoll.h" />
     <ClInclude Include="EventLoop.h" />
+    <ClInclude Include="InetAddress.h" />
     <ClInclude Include="ServerSocket.h" />
     <ClInclude Include="Simplekvsvr.h" />
     <ClInclude Include="TcpConnection.h" />
     <ClInclude Include="Thread.h" />
     <ClInclude Include="ThreadPool.h" />
+    <ClInclude Include="Timestamp.h" />
     <ClInclude Include="unistd.h" />
     <ClInclude Include="WorkQueue.h" />
     <ClInclude Include="WorkThreadPool.h" />
