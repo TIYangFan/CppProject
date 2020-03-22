@@ -83,8 +83,10 @@
     <ClCompile Include="InetAddress.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ServerSocket.cpp" />
+    <ClCompile Include="SharedMemory.cpp" />
     <ClCompile Include="Simplekvsvr.cpp" />
     <ClCompile Include="TcpConnection.cpp" />
+    <ClCompile Include="TcpServer.cpp" />
     <ClCompile Include="Thread.cpp" />
     <ClCompile Include="ThreadPool.cpp" />
     <ClCompile Include="Timestamp.cpp" />
@@ -99,8 +101,10 @@
     <ClInclude Include="EventLoop.h" />
     <ClInclude Include="InetAddress.h" />
     <ClInclude Include="ServerSocket.h" />
+    <ClInclude Include="SharedMemory.h" />
     <ClInclude Include="Simplekvsvr.h" />
     <ClInclude Include="TcpConnection.h" />
+    <ClInclude Include="TcpServer.h" />
     <ClInclude Include="Thread.h" />
     <ClInclude Include="ThreadPool.h" />
     <ClInclude Include="Timestamp.h" />

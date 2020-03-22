@@ -75,7 +75,7 @@ private:
 
 private:
 	StateE					state_;					// 连接信息
-	shared_ptr<Channel>		channel_;				// 引用 Channel 对象
+	//shared_ptr<Channel>		channel_;				// 引用 Channel 对象
 	const InetAddress		localAddr_;				// 本端的地址信息
 	const InetAddress		peerAddr_;				// 对端的地址信息
 

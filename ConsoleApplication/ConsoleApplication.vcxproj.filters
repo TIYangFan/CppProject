@@ -46,6 +46,12 @@
     <ClCompile Include="Epoll.cpp">
       <Filter>TcpNetwork\Epoll</Filter>
     </ClCompile>
+    <ClCompile Include="TcpServer.cpp">
+      <Filter>TcpNetwork\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="SharedMemory.cpp">
+      <Filter>CircularQueue</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClientSocket.h">
@@ -93,6 +99,12 @@
     <ClInclude Include="Epoll.h">
       <Filter>TcpNetwork\Epoll</Filter>
     </ClInclude>
+    <ClInclude Include="TcpServer.h">
+      <Filter>TcpNetwork\Head File</Filter>
+    </ClInclude>
+    <ClInclude Include="SharedMemory.h">
+      <Filter>CircularQueue</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="头文件">
@@ -118,6 +130,9 @@
     </Filter>
     <Filter Include="TcpNetwork\Epoll">
       <UniqueIdentifier>{94dfb2f1-e13f-436e-9d96-cba3e9012d44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CircularQueue">
+      <UniqueIdentifier>{71b63f6b-4b3c-4b5f-899c-bd280707f55e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

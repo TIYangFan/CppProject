@@ -221,6 +221,7 @@ char* CEpoll::get_errmsg()
 	return err_msg;
 }
 
+/*
 int main(int argc, char * argv[])
 {
 	CEpoll cepoll;
@@ -231,3 +232,4 @@ int main(int argc, char * argv[])
 	cepoll.do_epoll();
 	return 0;
 }
+*/
