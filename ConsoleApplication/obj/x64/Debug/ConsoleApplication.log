@@ -4,41 +4,38 @@
   Starting remote build
   Compiling sources:
   CircularTaskQueue.cpp
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(36,2): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(36,2): warning :   }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(36,2): warning :   ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(41,2): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(41,2): warning :   }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(41,2): warning :   ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(46,2): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(46,2): warning :   }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(46,2): warning :   ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(52,2): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(52,2): warning :   }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(52,2): warning :   ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(156,61): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(156,61): warning :    SharedMemory<test>* sm = new SharedMemory<test>("/tmp", 66);
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(156,61): warning :                                                              ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(157,66): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(157,66): warning :    SharedMemory<header>* sm2 = new SharedMemory<header>("/tmp", 67);
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(157,66): warning :                                                                   ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(161,27): warning : conversion to ‘int’ from ‘long unsigned int’ may alter its value [-Wconversion]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(161,27): warning :    sm->get_shm(sizeof(test)*10);
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(161,27): warning :                            ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(162,10): warning : unused variable ‘h’ [-Wunused-variable]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(162,10): warning :    header h;
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(162,10): warning :           ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(197,62): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(197,62): warning :    SharedMemory<test>* sm1 = new SharedMemory<test>("/tmp", 66);
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(197,62): warning :                                                               ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(198,66): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(198,66): warning :    SharedMemory<header>* sm3 = new SharedMemory<header>("/tmp", 67);
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(198,66): warning :                                                                   ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(211,29): warning : conversion to ‘int’ from ‘long unsigned int’ may alter its value [-Wconversion]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(211,29): warning :    sm1->get_shm(sizeof(test) * 10);
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(211,29): warning :                              ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(212,10): warning : unused variable ‘h’ [-Wunused-variable]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(212,10): warning :    header h;
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(212,10): warning :           ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(50,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(50,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(50,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(55,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(55,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(55,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(60,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(60,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(60,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(65,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(65,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(65,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(70,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(70,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(70,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(75,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(75,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(75,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(80,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(80,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(80,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(90,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(90,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(90,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(12,11): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(12,11): warning :   task_sm_ = new SharedMemory<Task>("/tmp", 66);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(12,11): warning :            ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(13,13): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(13,13): warning :   header_sm_ = new SharedMemory<Header>("/tmp", 67);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(13,13): warning :              ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(15,34): warning : conversion to ‘int’ from ‘long unsigned int’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(15,34): warning :   task_sm_->get_shm(sizeof(T) * 10);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(15,34): warning :                                   ^
   Linking objects
   ConsoleApplication.vcxproj -> C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\bin\x64\Debug\ConsoleApplication.out

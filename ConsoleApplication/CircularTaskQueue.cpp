@@ -5,16 +5,18 @@
 template<typename T>
 CircularTaskQueue<T>::CircularTaskQueue()
 {
-	//header_->front = 0;
-	//header_->rear = header_->front;
+	lock_ = Mutex::create();
+	lock_->init();
 
-	//lock_ = (mt*)mmap(NULL, sizeof(*lock_), PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANON, -1, 0);
-	//memset(lock_, 0x00, sizeof(*lock_));
+	header_ = new Header();
+	task_sm_ = new SharedMemory<Task>("/tmp", 66);
+	header_sm_ = new SharedMemory<Header>("/tmp", 67);
 
-	count_ = 0;
-	length_ = 10;
+	task_sm_->get_shm(sizeof(T) * 10);
+	queue_ = task_sm_->get_shm_ptr();
 
-	//queue_ = new Task[10];
+	header_sm_->get_shm(sizeof(Header));
+	header_ = header_sm_->get_shm_ptr();
 }
 
 template<typename T>
@@ -84,36 +86,60 @@ T CircularTaskQueue<T>::dequeue()
 	return task;
 }
 
-template<typename T>
-atomic<size_t> CircularTaskQueue<T>::getTail()
+int main(int argc, char * argv[])
 {
-	return header_->rear;
+	CircularTaskQueue<Task>* stq = new CircularTaskQueue<Task>();
+
+	pid_t childPid = fork();
+
+	if (childPid != 0)
+	{
+		printf("now we are in parent progress,pid=%d\n", (int)getpid());
+		printf("now we are in parent progress,childPid = %d\n", childPid);
+
+		sleep(2);
+		printf("Parent Lock\n");
+		stq->lock_->lock();
+
+		stq->queue_[1].serial_number = 13;
+		stq->queue_[2].serial_number = 15;
+
+		stq->header_->count = 3;
+
+		printf("Parent Cond signal\n");
+		stq->lock_->notifyNotFull();
+
+		stq->lock_->unlock();
+		printf("Parent Unlock\n");
+
+		getchar();
+	}
+	else
+	{
+		printf("now we are in child progress,pid = %d\n", (int)getpid());
+		printf("now we are in child progress,parentPid = %d\n", (int)getppid());
+
+		printf("Child Lock\n");
+		stq->lock_->lock();
+
+		printf("Child Cond wait\n");
+		stq->lock_->waitNotFull();
+		printf("Child Cond signal\n");
+
+		printf("sid:%d %d\n", stq->queue_[1].serial_number, stq->queue_[2].serial_number);
+		printf("count: %d\n", stq->header_->count);
+
+		stq->lock_->unlock();
+		printf("Child Unlock\n");
+
+		getchar();
+	}
+
+	getchar();
+	return 0;
 }
 
-template<typename T>
-atomic<size_t> CircularTaskQueue<T>::getHead()
-{
-	return header_->front;
-}
-
-template<typename T>
-int CircularTaskQueue<T>::size()
-{
-	return header_->size;
-}
-
-template<typename T>
-bool CircularTaskQueue<T>::isEmpty()
-{
-	return ((header_->rear + 1) % header_->size) == header_->front;
-}
-
-template<typename T>
-bool CircularTaskQueue<T>::isFull()
-{
-	return header_->rear == header_->front;
-}
-
+/*
 struct mta
 {
 	int num;
@@ -121,14 +147,6 @@ struct mta
 	pthread_mutexattr_t mutexattr;
 	pthread_cond_t cond;
 	pthread_condattr_t condattr;
-};
-
-struct header
-{
-	int length;
-	int count;
-	int put_index;
-	int take_index;
 };
 
 int main(int argc, char * argv[])
@@ -154,13 +172,13 @@ int main(int argc, char * argv[])
 		printf("now we are in parent progress,childPid = %d\n", childPid);
 
 		SharedMemory<test>* sm = new SharedMemory<test>("/tmp", 66);
-		SharedMemory<header>* sm2 = new SharedMemory<header>("/tmp", 67);
+		SharedMemory<Header>* sm2 = new SharedMemory<Header>("/tmp", 67);
 
 		printf("---------------save--------------\n");
 		test t;
 		sm->get_shm(sizeof(test)*10);
-		header h;
-		sm2->get_shm(sizeof(header));
+		Header h;
+		sm2->get_shm(sizeof(Header));
 
 		sleep(2);
 
@@ -172,12 +190,12 @@ int main(int argc, char * argv[])
 		ptr[1].age = 10;
 		ptr[2].age = 12;
 
-		header* ptr2 = sm2->get_shm_ptr();
+		Header* ptr2 = sm2->get_shm_ptr();
 		ptr2->count = 2;
 
 		//ptr->age = 10;
-		sm->save_shm(ptr);
-		sm2->save_shm(ptr2);
+		//sm->save_shm(ptr);
+		//sm2->save_shm(ptr2);
 		//delete sm;
 
 		sleep(2);
@@ -195,7 +213,7 @@ int main(int argc, char * argv[])
 		printf("now we are in child progress,parentPid = %d\n", (int)getppid());
 
 		SharedMemory<test>* sm1 = new SharedMemory<test>("/tmp", 66);
-		SharedMemory<header>* sm3 = new SharedMemory<header>("/tmp", 67);
+		SharedMemory<Header>* sm3 = new SharedMemory<Header>("/tmp", 67);
 
 		pthread_mutex_lock(&mm->mutex);
 		printf("Child Lock\n");
@@ -209,18 +227,18 @@ int main(int argc, char * argv[])
 		printf("---------------get--------------\n");
 		test t;
 		sm1->get_shm(sizeof(test) * 10);
-		header h;
-		sm3->get_shm(sizeof(header));
+		Header h;
+		sm3->get_shm(sizeof(Header));
 
 		test* ptr1 = sm1->get_shm_ptr();
 
-		header* ptr2 = sm3->get_shm_ptr();
+		Header* ptr2 = sm3->get_shm_ptr();
 
 		printf("age:%d %d\n", ptr1[1].age, ptr1[2].age);
 
 		printf("count: %d\n", ptr2->count);
 
-		sm1->save_shm(ptr1);
+		//sm1->save_shm(ptr1);
 		delete sm1;
 		delete sm3;
 
@@ -238,3 +256,4 @@ int main(int argc, char * argv[])
 
 	return 0;
 }
+*/

@@ -12,16 +12,30 @@
 
 using namespace std;
 
-
-struct mt
+struct Header
 {
-	int num;
+	int length;
+	int count;
+	int put_index;
+	int take_index;
+};
+
+struct Mutex
+{
 	pthread_mutex_t mutex;
 	pthread_mutexattr_t mutexattr;
 
 	pthread_cond_t not_empty;
 	pthread_cond_t not_full;
 	pthread_condattr_t condattr;
+
+	static struct Mutex* create()
+	{
+		struct Mutex* mm;
+		mm = (Mutex*)mmap(NULL, sizeof(*mm), PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANON, -1, 0);
+		memset(mm, 0x00, sizeof(*mm));
+		return mm;
+	}
 
 	bool init()
 	{
@@ -45,36 +59,51 @@ struct mt
 		pthread_mutex_unlock(&mutex);
 	}
 
+	bool notifyNotEmpty()
+	{
+		pthread_cond_signal(&not_empty);
+	}
+
+	bool waitNotEmpty()
+	{
+		pthread_cond_wait(&not_empty, &mutex);
+	}
+
+	bool notifyNotFull()
+	{
+		pthread_cond_signal(&not_full);
+	}
+
+	bool waitNotFull()
+	{
+		pthread_cond_wait(&not_full, &mutex);
+	}
+
 	bool destroy()
 	{
 		pthread_mutexattr_destroy(&mutexattr);  // 销毁 mutex 属性对象
 		pthread_mutex_destroy(&mutex);          // 销毁 mutex 锁
+
+		pthread_condattr_destroy(&condattr);
+		pthread_cond_destroy(&not_empty);
+		pthread_cond_destroy(&not_full);
 	}
 };
 
 struct Task
 {
-	// Header
+	// Task Header
 	time_t		timestamp;			// 8 byte
 	unsigned int serial_number;		// 4 byte
 	char type;						// 1 byte
 
-	// Body
+	// Task Body
 	char buf[MAX_BUF_SIZE];			// 19 byte
 };
 
 template<typename T>
 class CircularTaskQueue
 {
-	struct QueueHeader
-	{
-		char name[MAX_NAME_SIZE];
-		unsigned int len;
-		size_t size;
-		atomic<size_t> front;
-		atomic<size_t> rear;
-	};
-
 public:
 	CircularTaskQueue();
 	~CircularTaskQueue();
@@ -84,23 +113,6 @@ public:
 	bool take(T& task);
 	T dequeue();
 
-	bool dequeue(T* task);
-
-	bool waitAndPop(T& t);
-	bool tryPop(T& t);
-
-	int size();
-	bool isEmpty();
-	bool isFull();
-
-	atomic<size_t> getTail();
-	atomic<size_t> getHead();
-
-	void termination();
-	bool isTermination();
-
-	T*				queue_;
-	struct mt*		lock_;
 	int				length_;
 	int				count_;
 
@@ -108,12 +120,14 @@ private:
 	int task_size_;
 	int task_cnt_;
 
+	int put_index;
+	int take_index;
 
-	int				put_index;
-	int				take_index;
-
-	QueueHeader*	header_;
-	void*			shmaddr_;
-	void*			shmHanlde_;
+public:
+	T*						queue_;
+	struct Mutex*			lock_;
+	struct Header*			header_;
+	SharedMemory<Task>*		task_sm_;
+	SharedMemory<Header>*	header_sm_;
 };
 
