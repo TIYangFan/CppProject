@@ -73,7 +73,7 @@ template<typename T>
 T CircularTaskQueue<T>::dequeue()
 {
 	T task = queue_[header_->take_index];
-	//queue_[take_index] = NULL;
+	memset(queue_+ header_->take_index, 0x00, sizeof(T));
 	
 	if (++header_->take_index == header_->length)
 		header_->take_index = 0;
