@@ -1,119 +1,6 @@
 #include "CircularTaskQueue.h"
 
-#include "SharedMemory.cpp"
-
-template<typename T>
-CircularTaskQueue<T>::CircularTaskQueue()
-{
-	//header_->front = 0;
-	//header_->rear = header_->front;
-
-	//lock_ = (mt*)mmap(NULL, sizeof(*lock_), PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANON, -1, 0);
-	//memset(lock_, 0x00, sizeof(*lock_));
-
-	count_ = 0;
-	length_ = 10;
-
-	//queue_ = new Task[10];
-}
-
-template<typename T>
-CircularTaskQueue<T>::~CircularTaskQueue()
-{
-
-}
-
-template<typename T>
-bool CircularTaskQueue<T>::put(const T task)
-{
-	lock_->lock();
-	
-	while (count_ == length_)
-		pthread_cond_wait(&lock_->not_full, &lock_->mutex);
-
-	enqueue(task);
-	
-	lock_->unlock();
-	return true;
-}
-
-template<typename T>
-void CircularTaskQueue<T>::enqueue(const T task)
-{
-	queue_[put_index] = task;
-
-	if (++put_index == length_)
-		put_index = 0;
-
-	count_++;
-
-	printf("enqueue task %d", task.serial_number);
-	
-	pthread_cond_signal(&lock_->not_empty);
-}
-
-template<typename T>
-bool CircularTaskQueue<T>::take(T& task)
-{
-	lock_->lock();
-	while (count_ == 0)
-		pthread_cond_wait(&lock_->not_empty, &lock_->mutex);
-
-	task = dequeue();
-
-	printf("task B: %d\n", task.serial_number);
-
-	lock_->unlock();
-	return true;
-}
-
-template<typename T>
-T CircularTaskQueue<T>::dequeue()
-{
-	T task = queue_[take_index];
-	//queue_[take_index] = NULL;
-
-	printf("take_index: %d\n", take_index);
-	printf("task A: %d\n", task.serial_number);
-	
-	if (++take_index == length_)
-		take_index = 0;
-
-	count_--;
-	pthread_cond_signal(&lock_->not_full);
-	return task;
-}
-
-template<typename T>
-atomic<size_t> CircularTaskQueue<T>::getTail()
-{
-	return header_->rear;
-}
-
-template<typename T>
-atomic<size_t> CircularTaskQueue<T>::getHead()
-{
-	return header_->front;
-}
-
-template<typename T>
-int CircularTaskQueue<T>::size()
-{
-	return header_->size;
-}
-
-template<typename T>
-bool CircularTaskQueue<T>::isEmpty()
-{
-	return ((header_->rear + 1) % header_->size) == header_->front;
-}
-
-template<typename T>
-bool CircularTaskQueue<T>::isFull()
-{
-	return header_->rear == header_->front;
-}
-
+/*
 struct mta
 {
 	int num;
@@ -145,7 +32,7 @@ int main(int argc, char * argv[])
 	pthread_condattr_init(&mm->condattr);
 	pthread_condattr_setpshared(&mm->condattr, PTHREAD_PROCESS_SHARED);
 	pthread_cond_init(&mm->cond, &mm->condattr);
-	
+
 	pid_t childPid = fork();
 
 	if (childPid != 0)
@@ -166,7 +53,7 @@ int main(int argc, char * argv[])
 
 		pthread_mutex_lock(&mm->mutex);
 		printf("Parent Lock\n");
-		
+
 		test* ptr = sm->get_shm_ptr();
 
 		ptr[1].age = 10;
@@ -238,3 +125,4 @@ int main(int argc, char * argv[])
 
 	return 0;
 }
+*/

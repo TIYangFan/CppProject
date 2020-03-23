@@ -68,6 +68,7 @@ bool SharedMemory<T>::destroy_shm()
 	return true;
 }
 
+/*
 int main(int argc, char * argv[])
 {
 	pid_t childPid = fork();
@@ -82,9 +83,12 @@ int main(int argc, char * argv[])
 		t.age = 10;
 
 		printf("---------------save--------------\n");
-		sm->create_shm(sizeof(t));
+		sm->create_shm(sizeof(t)*10);
 		test* ptr = sm->get_shm_ptr();
-		ptr->age = 10;
+		ptr[1].age = 10;
+		ptr[2].age = 12;
+
+		//ptr->age = 10;
 		sm->save_shm(ptr);
 		//delete sm;
 	}
@@ -98,14 +102,11 @@ int main(int argc, char * argv[])
 		sleep(1);
 		printf("---------------get--------------\n");
 		test t;
-		sm1->get_shm(sizeof(t));
+		sm1->get_shm(sizeof(t)*10);
 		test* ptr1 = sm1->get_shm_ptr();
-		printf("age:%d", ptr1->age);
+		printf("age:%d %d", ptr1[1].age, ptr1[2].age);
 		sm1->save_shm(ptr1);
 		delete sm1;
 	}
-
-	getchar();
-
-	return 0;
 }
+*/

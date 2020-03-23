@@ -52,6 +52,12 @@
     <ClCompile Include="SharedMemory.cpp">
       <Filter>CircularQueue</Filter>
     </ClCompile>
+    <ClCompile Include="CircularTaskQueue.cpp">
+      <Filter>CircularQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="MutexAndCondDemo.cpp">
+      <Filter>CircularQueue</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClientSocket.h">
@@ -103,6 +109,9 @@
       <Filter>TcpNetwork\Head File</Filter>
     </ClInclude>
     <ClInclude Include="SharedMemory.h">
+      <Filter>CircularQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="CircularTaskQueue.h">
       <Filter>CircularQueue</Filter>
     </ClInclude>
   </ItemGroup>

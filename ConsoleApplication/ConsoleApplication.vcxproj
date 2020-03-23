@@ -77,11 +77,13 @@
   <ItemGroup>
     <ClCompile Include="AbstractInetAddress.cpp" />
     <ClCompile Include="Channel.cpp" />
+    <ClCompile Include="CircularTaskQueue.cpp" />
     <ClCompile Include="ClientSocket.cpp" />
     <ClCompile Include="Epoll.cpp" />
     <ClCompile Include="EventLoop.cpp" />
     <ClCompile Include="InetAddress.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MutexAndCondDemo.cpp" />
     <ClCompile Include="ServerSocket.cpp" />
     <ClCompile Include="SharedMemory.cpp" />
     <ClCompile Include="Simplekvsvr.cpp" />
@@ -96,6 +98,7 @@
   <ItemGroup>
     <ClInclude Include="AbstractInetAddress.h" />
     <ClInclude Include="Channel.h" />
+    <ClInclude Include="CircularTaskQueue.h" />
     <ClInclude Include="ClientSocket.h" />
     <ClInclude Include="Epoll.h" />
     <ClInclude Include="EventLoop.h" />
