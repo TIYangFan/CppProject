@@ -14,15 +14,20 @@ CircularTaskQueue<T>::CircularTaskQueue()
 
 	task_sm_->get_shm(sizeof(T) * 10);
 	queue_ = task_sm_->get_shm_ptr();
+	memset(queue_, 0x00, sizeof(queue_));
 
 	header_sm_->get_shm(sizeof(Header));
 	header_ = header_sm_->get_shm_ptr();
+	memset(header_, 0x00, sizeof(header_));
+	header_->length = 10;
 }
 
 template<typename T>
 CircularTaskQueue<T>::~CircularTaskQueue()
 {
-
+	lock_->destroy();
+	task_sm_->destroy_shm();
+	header_sm_->destroy_shm();
 }
 
 template<typename T>
@@ -30,9 +35,8 @@ bool CircularTaskQueue<T>::put(const T task)
 {
 	lock_->lock();
 	
-	while (count_ == length_)
-		pthread_cond_wait(&lock_->not_full, &lock_->mutex);
-
+	while (header_->count == header_->length)
+		lock_->waitNotFull();
 	enqueue(task);
 	
 	lock_->unlock();
@@ -42,28 +46,24 @@ bool CircularTaskQueue<T>::put(const T task)
 template<typename T>
 void CircularTaskQueue<T>::enqueue(const T task)
 {
-	queue_[put_index] = task;
+	queue_[header_->put_index] = task;
 
-	if (++put_index == length_)
-		put_index = 0;
+	if (++header_->put_index == header_->length)
+		header_->put_index = 0;
 
-	count_++;
-
-	printf("enqueue task %d", task.serial_number);
+	header_->count++;
 	
-	pthread_cond_signal(&lock_->not_empty);
+	lock_->notifyNotEmpty();
 }
 
 template<typename T>
 bool CircularTaskQueue<T>::take(T& task)
 {
 	lock_->lock();
-	while (count_ == 0)
-		pthread_cond_wait(&lock_->not_empty, &lock_->mutex);
+	while (header_->count == 0)
+		lock_->waitNotEmpty();
 
 	task = dequeue();
-
-	printf("task B: %d\n", task.serial_number);
 
 	lock_->unlock();
 	return true;
@@ -72,17 +72,14 @@ bool CircularTaskQueue<T>::take(T& task)
 template<typename T>
 T CircularTaskQueue<T>::dequeue()
 {
-	T task = queue_[take_index];
+	T task = queue_[header_->take_index];
 	//queue_[take_index] = NULL;
-
-	printf("take_index: %d\n", take_index);
-	printf("task A: %d\n", task.serial_number);
 	
-	if (++take_index == length_)
-		take_index = 0;
+	if (++header_->take_index == header_->length)
+		header_->take_index = 0;
 
-	count_--;
-	pthread_cond_signal(&lock_->not_full);
+	header_->count--;
+	lock_->notifyNotFull();
 	return task;
 }
 
@@ -98,6 +95,7 @@ int main(int argc, char * argv[])
 		printf("now we are in parent progress,childPid = %d\n", childPid);
 
 		sleep(2);
+		/*
 		printf("Parent Lock\n");
 		stq->lock_->lock();
 
@@ -111,6 +109,12 @@ int main(int argc, char * argv[])
 
 		stq->lock_->unlock();
 		printf("Parent Unlock\n");
+		*/
+
+		Task* task = new Task();
+		task->serial_number = 16;
+		stq->put(*task);
+		printf("Parent put task\n");
 
 		getchar();
 	}
@@ -119,6 +123,7 @@ int main(int argc, char * argv[])
 		printf("now we are in child progress,pid = %d\n", (int)getpid());
 		printf("now we are in child progress,parentPid = %d\n", (int)getppid());
 
+		/*
 		printf("Child Lock\n");
 		stq->lock_->lock();
 
@@ -131,6 +136,12 @@ int main(int argc, char * argv[])
 
 		stq->lock_->unlock();
 		printf("Child Unlock\n");
+		*/
+
+		printf("Child begin get task\n");
+		Task* task = new Task();
+		stq->take(*task);
+		printf("Child get task %d\n", task->serial_number);
 
 		getchar();
 	}

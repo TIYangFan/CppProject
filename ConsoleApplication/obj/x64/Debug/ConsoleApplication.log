@@ -37,5 +37,11 @@ C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQu
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(15,34): warning : conversion to ‘int’ from ‘long unsigned int’ may alter its value [-Wconversion]
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(15,34): warning :   task_sm_->get_shm(sizeof(T) * 10);
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(15,34): warning :                                   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(17,29): warning : argument to ‘sizeof’ in ‘void* memset(void*, int, size_t)’ call is the same expression as the destination; did you mean to dereference it? [-Wsizeof-pointer-memaccess]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(17,29): warning :   memset(queue_, 0x00, sizeof(queue_));
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(17,29): warning :                              ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(21,30): warning : argument to ‘sizeof’ in ‘void* memset(void*, int, size_t)’ call is the same expression as the destination; did you mean to dereference it? [-Wsizeof-pointer-memaccess]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(21,30): warning :   memset(header_, 0x00, sizeof(header_));
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(21,30): warning :                               ^
   Linking objects
   ConsoleApplication.vcxproj -> C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\bin\x64\Debug\ConsoleApplication.out
