@@ -14,7 +14,7 @@ CircularTaskQueue<T>::CircularTaskQueue()
 
 	task_sm_->get_shm(sizeof(T) * 10);
 	queue_ = task_sm_->get_shm_ptr();
-	memset(queue_, 0x00, sizeof(queue_));
+	memset(queue_, 0x00, sizeof(T) * 10);
 
 	header_sm_->get_shm(sizeof(Header));
 	header_ = header_sm_->get_shm_ptr();
@@ -83,6 +83,7 @@ T CircularTaskQueue<T>::dequeue()
 	return task;
 }
 
+/*
 int main(int argc, char * argv[])
 {
 	CircularTaskQueue<Task>* stq = new CircularTaskQueue<Task>();
@@ -95,7 +96,7 @@ int main(int argc, char * argv[])
 		printf("now we are in parent progress,childPid = %d\n", childPid);
 
 		sleep(2);
-		/*
+		
 		printf("Parent Lock\n");
 		stq->lock_->lock();
 
@@ -109,12 +110,14 @@ int main(int argc, char * argv[])
 
 		stq->lock_->unlock();
 		printf("Parent Unlock\n");
-		*/
 
+
+		
 		Task* task = new Task();
 		task->serial_number = 16;
 		stq->put(*task);
 		printf("Parent put task\n");
+		
 
 		getchar();
 	}
@@ -123,7 +126,7 @@ int main(int argc, char * argv[])
 		printf("now we are in child progress,pid = %d\n", (int)getpid());
 		printf("now we are in child progress,parentPid = %d\n", (int)getppid());
 
-		/*
+		
 		printf("Child Lock\n");
 		stq->lock_->lock();
 
@@ -136,12 +139,14 @@ int main(int argc, char * argv[])
 
 		stq->lock_->unlock();
 		printf("Child Unlock\n");
-		*/
+		
 
+		
 		printf("Child begin get task\n");
 		Task* task = new Task();
 		stq->take(*task);
 		printf("Child get task %d\n", task->serial_number);
+		
 
 		getchar();
 	}
@@ -149,7 +154,7 @@ int main(int argc, char * argv[])
 	getchar();
 	return 0;
 }
-
+*/
 /*
 struct mta
 {

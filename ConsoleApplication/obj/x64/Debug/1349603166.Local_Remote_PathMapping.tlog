@@ -7,6 +7,7 @@ C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.c
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.cpp|/root/projects/ConsoleApplication/Epoll.cpp
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\EventLoop.cpp|/root/projects/ConsoleApplication/EventLoop.cpp
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\InetAddress.cpp|/root/projects/ConsoleApplication/InetAddress.cpp
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp|/root/projects/ConsoleApplication/LockFreeCircularTaskQueue.cpp
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\main.cpp|/root/projects/ConsoleApplication/main.cpp
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\MutexAndCondDemo.cpp|/root/projects/ConsoleApplication/MutexAndCondDemo.cpp
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp|/root/projects/ConsoleApplication/ServerSocket.cpp
@@ -26,6 +27,7 @@ C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.h
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.h|/root/projects/ConsoleApplication/Epoll.h
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\EventLoop.h|/root/projects/ConsoleApplication/EventLoop.h
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\InetAddress.h|/root/projects/ConsoleApplication/InetAddress.h
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h|/root/projects/ConsoleApplication/LockFreeCircularTaskQueue.h
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.h|/root/projects/ConsoleApplication/ServerSocket.h
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\SharedMemory.h|/root/projects/ConsoleApplication/SharedMemory.h
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.h|/root/projects/ConsoleApplication/Simplekvsvr.h

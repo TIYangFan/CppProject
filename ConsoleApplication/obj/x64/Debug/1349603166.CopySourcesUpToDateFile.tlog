@@ -1,10 +1,11 @@
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\AbstractInetAddress.cpp|637202988950070908|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Channel.cpp|637204971916417597|~/projects/ConsoleApplication|
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp|637205936539993615|~/projects/ConsoleApplication|
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp|637206603601663909|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp|637203816523495747|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.cpp|637204962387151095|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\EventLoop.cpp|637202971985592832|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\InetAddress.cpp|637202985452971494|~/projects/ConsoleApplication|
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp|637206607332250767|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\main.cpp|637199048691915926|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\MutexAndCondDemo.cpp|637205751115407245|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp|637200408987830554|~/projects/ConsoleApplication|
@@ -19,11 +20,12 @@ C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkQueue.cpp|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp|637199922022151137|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\AbstractInetAddress.h|637202984746240316|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Channel.h|637204971961796258|~/projects/ConsoleApplication|
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h|637205834300682013|~/projects/ConsoleApplication|
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h|637206603672235511|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.h|637199511997145104|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.h|637203330520296792|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\EventLoop.h|637202972194129209|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\InetAddress.h|637202985492988682|~/projects/ConsoleApplication|
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h|637206582359713046|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.h|637199910299620070|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\SharedMemory.h|637205039700626482|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.h|637202949291447539|~/projects/ConsoleApplication|

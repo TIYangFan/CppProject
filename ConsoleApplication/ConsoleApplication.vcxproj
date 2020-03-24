@@ -82,6 +82,7 @@
     <ClCompile Include="Epoll.cpp" />
     <ClCompile Include="EventLoop.cpp" />
     <ClCompile Include="InetAddress.cpp" />
+    <ClCompile Include="LockFreeCircularTaskQueue.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MutexAndCondDemo.cpp" />
     <ClCompile Include="ServerSocket.cpp" />
@@ -103,6 +104,7 @@
     <ClInclude Include="Epoll.h" />
     <ClInclude Include="EventLoop.h" />
     <ClInclude Include="InetAddress.h" />
+    <ClInclude Include="LockFreeCircularTaskQueue.h" />
     <ClInclude Include="ServerSocket.h" />
     <ClInclude Include="SharedMemory.h" />
     <ClInclude Include="Simplekvsvr.h" />

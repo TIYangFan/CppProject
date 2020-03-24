@@ -58,6 +58,9 @@
     <ClCompile Include="MutexAndCondDemo.cpp">
       <Filter>CircularQueue</Filter>
     </ClCompile>
+    <ClCompile Include="LockFreeCircularTaskQueue.cpp">
+      <Filter>CircularQueue</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClientSocket.h">
@@ -112,6 +115,9 @@
       <Filter>CircularQueue</Filter>
     </ClInclude>
     <ClInclude Include="CircularTaskQueue.h">
+      <Filter>CircularQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="LockFreeCircularTaskQueue.h">
       <Filter>CircularQueue</Filter>
     </ClInclude>
   </ItemGroup>

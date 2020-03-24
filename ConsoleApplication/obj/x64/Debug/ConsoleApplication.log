@@ -3,45 +3,21 @@
   Validating architecture
   Starting remote build
   Compiling sources:
-  CircularTaskQueue.cpp
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(50,2): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(50,2): warning :   }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(50,2): warning :   ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(55,2): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(55,2): warning :   }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(55,2): warning :   ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(60,2): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(60,2): warning :   }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(60,2): warning :   ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(65,2): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(65,2): warning :   }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(65,2): warning :   ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(70,2): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(70,2): warning :   }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(70,2): warning :   ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(75,2): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(75,2): warning :   }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(75,2): warning :   ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(80,2): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(80,2): warning :   }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(80,2): warning :   ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(90,2): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(90,2): warning :   }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(90,2): warning :   ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(12,11): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(12,11): warning :   task_sm_ = new SharedMemory<Task>("/tmp", 66);
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(12,11): warning :            ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(13,13): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(13,13): warning :   header_sm_ = new SharedMemory<Header>("/tmp", 67);
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(13,13): warning :              ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(15,34): warning : conversion to ‘int’ from ‘long unsigned int’ may alter its value [-Wconversion]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(15,34): warning :   task_sm_->get_shm(sizeof(T) * 10);
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(15,34): warning :                                   ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(17,29): warning : argument to ‘sizeof’ in ‘void* memset(void*, int, size_t)’ call is the same expression as the destination; did you mean to dereference it? [-Wsizeof-pointer-memaccess]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(17,29): warning :   memset(queue_, 0x00, sizeof(queue_));
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(17,29): warning :                              ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(21,30): warning : argument to ‘sizeof’ in ‘void* memset(void*, int, size_t)’ call is the same expression as the destination; did you mean to dereference it? [-Wsizeof-pointer-memaccess]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(21,30): warning :   memset(header_, 0x00, sizeof(header_));
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp(21,30): warning :                               ^
+  LockFreeCircularTaskQueue.cpp
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(32,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(32,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(32,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(56,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(56,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(56,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(8,11): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(8,11): warning :   task_sm_ = new SharedMemory<Task>("/tmp", 66);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(8,11): warning :            ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(9,13): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(9,13): warning :   header_sm_ = new SharedMemory<Header>("/tmp", 67);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(9,13): warning :              ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(11,34): warning : conversion to ‘int’ from ‘long unsigned int’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(11,34): warning :   task_sm_->get_shm(sizeof(T) * 10);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(11,34): warning :                                   ^
   Linking objects
   ConsoleApplication.vcxproj -> C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\bin\x64\Debug\ConsoleApplication.out
