@@ -3,6 +3,7 @@
 #include <fstream>
 #include <stdlib.h>
 #include <string.h>
+#include <atomic>
 #include <map>
 
 using namespace std;
@@ -13,6 +14,34 @@ struct ptrCmp
 	{
 		return strcmp(s1, s2) < 0;
 	}
+};
+
+struct Stats
+{
+	Stats()
+	{
+		key_count = 0;
+		
+		mem_size = 0;
+		file_size = 0;
+		
+		hit_count = 0;
+		miss_count = 0;
+
+		cache_hit_count = 0;
+		cache_miss_count = 0;
+	}
+
+	atomic<int> key_count;
+
+	atomic<int> mem_size;
+	atomic<int> file_size;
+
+	atomic<int> hit_count;
+	atomic<int> miss_count;
+
+	atomic<int> cache_hit_count;
+	atomic<int> cache_miss_count;
 };
 
 /*
@@ -27,11 +56,11 @@ struct SVal
 {	
 	char c_state;	// state of value
 	int i_val_len;	// length of value
-	char* s_val;	// content of value
+	const char* s_val;	// content of value
 
 	SVal();
-	SVal(char* val);
-	SVal(char state, char* val);
+	SVal(const char* val);
+	SVal(char state, const char* val);
 
 	long long write(fstream* io_file);	// append write AND return value offset
 	bool read(fstream* io_file, int offset);	// 
@@ -51,15 +80,15 @@ struct SKey
 {
 	long long val_offset;
 	int i_key_len;
-	char* s_key;
+	const char* s_key;
 
 	SKey();
-	SKey(char* key);
-	SKey(long long offset, char* key);
+	SKey(const char* key);
+	SKey(long long offset, const char* key);
 
 	bool write(fstream* io_persist);
 	bool read(fstream* io_persist);
-	bool readAll(fstream* io_persist, map<char*, long long, ptrCmp>* db);
+	bool readAll(fstream* io_persist, map<const char*, long long, ptrCmp>* db);
 };
 
 class CSimplekvsvr
@@ -68,20 +97,19 @@ public:
 	CSimplekvsvr();
 	~CSimplekvsvr();
 
-	char* getValue(char* key);
-	bool setValue(char* key, char* value);
-	bool deleteValue(char* key);
-//	bool persist(char* key, long long val_offset);
+	const char* getValue(const char* key);
+	bool setValue(const char* key, const char* value);
+	bool deleteValue(const char* key);
 	bool loadData();
 	bool reorganizeStorage();
 
-	bool getStatistics();
+	Stats* getStats();
 	bool getAllValueItemsInFile();
 	bool getAllKeyItemsInPersist();
 
 private:
-	map<char*, long long, ptrCmp> m_db;
-	map<char*, char*, ptrCmp> m_cache; // TODO: LRU
+	map<const char*, long long, ptrCmp>* m_db;
+	map<const char*, const char*, ptrCmp>* m_cache; // TODO: LRU
 
 	fstream* io_file;
 	fstream* io_persist;
@@ -89,15 +117,6 @@ private:
 	/*
 	 * TODO: use Proxy Mode to statistics (should first extracting the data access layer)
 	 */
-	int key_count;
-
-	int mem_size;
-	int file_size;
-
-	int hit_count;
-	int miss_count;
-
-	int cache_hit_count;
-	int cache_miss_count;
+	Stats* m_stats;
 };
 

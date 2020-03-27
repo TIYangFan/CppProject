@@ -44,21 +44,24 @@ int CClientSocket::connectSocket(char* ip_addr)
 
 int CClientSocket::sendMessage()
 {
-	printf("send msg to server: \n");
-
-	char sendline[4096];
-	fgets(sendline, MAXLINE, stdin);
-
-	if (send(m_sockfd, sendline, strlen(sendline), 0) < 0)
+	while (true)
 	{
-		printf("[INFO] send message error: %s(errno: %d)\n", strerror(errno), errno);
-		return 0;
-	}
+		printf("send msg to server: \n");
 
-	char buff[MAXLINE];
-	int n = recv(m_sockfd, buff, MAXLINE, 0);
-	buff[n] = '\0';
-	printf("[MSG] recv msg from server: %s\n", buff);
+		char sendline[4096];
+		fgets(sendline, MAXLINE, stdin);
+
+		if (send(m_sockfd, sendline, strlen(sendline), 0) < 0)
+		{
+			printf("[INFO] send message error: %s(errno: %d)\n", strerror(errno), errno);
+			return 0;
+		}
+
+		char buff[MAXLINE];
+		int n = recv(m_sockfd, buff, MAXLINE, 0);
+		buff[n] = '\0';
+		printf("[MSG] recv msg from server: %s\n", buff);
+	}
 
 	close(m_sockfd);
 

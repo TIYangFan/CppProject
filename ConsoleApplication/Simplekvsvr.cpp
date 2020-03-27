@@ -14,14 +14,14 @@ SVal::SVal()
 	s_val = NULL;
 }
 
-SVal::SVal(char* val)
+SVal::SVal(const char* val)
 {
 	c_state = 0;
 	i_val_len = strlen(val);
 	s_val = val;
 }
 
-SVal::SVal(char state, char* val)
+SVal::SVal(char state, const char* val)
 {
 	c_state = state;
 	i_val_len = strlen(val);
@@ -49,9 +49,10 @@ bool SVal::read(fstream* io_file, int offset)
 	io_file->read((char*)&c_state, sizeof(c_state));
 	io_file->read((char*)&i_val_len, sizeof(i_val_len));
 
-	s_val = new char[i_val_len+1];
-	s_val[i_val_len] = '\0';
-	io_file->read(s_val, i_val_len);
+	char* val = new char[i_val_len + 1];
+	val[i_val_len] = '\0';
+	io_file->read(val, i_val_len);
+	s_val = val;
 
 	printf("[INFO] read from file: state %d, length %d, value %s \n", c_state, i_val_len, s_val);
 }
@@ -75,14 +76,14 @@ SKey::SKey()
 
 }
 
-SKey::SKey(char* key)
+SKey::SKey(const char* key)
 {
 	val_offset = 0;
 	i_key_len = strlen(key);
 	s_key = key;
 }
 
-SKey::SKey(long long offset, char* key)
+SKey::SKey(long long offset, const char* key)
 {
 	val_offset = offset;
 	i_key_len = strlen(key);
@@ -106,12 +107,13 @@ bool SKey::read(fstream* io_persist)
 	io_persist->read((char*)&val_offset, sizeof(val_offset));
 	io_persist->read((char*)&i_key_len, sizeof(i_key_len));
 
-	s_key = new char[i_key_len + 1];
-	s_key[i_key_len] = '\0';
-	io_persist->read(s_key, i_key_len);
+	char* key = new char[i_key_len + 1];
+	key[i_key_len] = '\0';
+	io_persist->read(key, i_key_len);
+	s_key = key;
 }
 
-bool SKey::readAll(fstream* io_persist, map<char*, long long, ptrCmp>* db)
+bool SKey::readAll(fstream* io_persist, map<const char*, long long, ptrCmp>* db)
 {
 	io_persist->seekg(0, ios::beg);
 	while (io_persist->peek() != EOF)
@@ -145,6 +147,10 @@ CSimplekvsvr::CSimplekvsvr()
 	{
 		cout << "not open" << endl;
 	}
+
+	m_stats = new Stats();
+	m_db = new map<const char*, long long, ptrCmp>();
+	m_cache = new map<const char*, const char*, ptrCmp>();
 }
 
 CSimplekvsvr::~CSimplekvsvr()
@@ -153,17 +159,21 @@ CSimplekvsvr::~CSimplekvsvr()
 	io_persist->close();
 }
 
-char* CSimplekvsvr::getValue(char* key)
+const char* CSimplekvsvr::getValue(const char* key)
 {
 	// first find at cache
-	/*
-	map<char*, char*>::iterator iter = m_cache.find(key);
-	if (iter != m_cache.end())
+	map<const char*, const char*>::iterator iter = m_cache->find(key);
+	if (iter != m_cache->end())
 	{
 		cout << "[INFO] get from cache" << endl;
+
+		m_stats->hit_count++;		// hit key
+		m_stats->cache_hit_count++;	// hit cache
+
 		return iter->second;
 	}
-	*/
+	
+	m_stats->cache_miss_count++;		// miss cache
 
 	if (!io_file->is_open())
 	{
@@ -171,24 +181,28 @@ char* CSimplekvsvr::getValue(char* key)
 		exit(1);
 	}
 
-	map<char*, long long>::iterator db_iter = m_db.find(key);
-	if (db_iter != m_db.end())
+	map<const char*, long long>::iterator db_iter = m_db->find(key);
+	if (db_iter != m_db->end())
 	{
 		struct SVal val;
-		val.read(io_file, m_db[key]);
+		val.read(io_file, db_iter->second);	// m_db[key]
 
 		// verify data state if dirty again
 		if (!GetBit(0, val.c_state))
 		{
-			m_cache[key] = val.s_val; // add cache
+			(*m_cache)[key] = val.s_val; // add cache
 			return val.s_val;
 		}
+
+		m_stats->hit_count++;	// hit key
 	}
 
-	return NULL;
+	m_stats->miss_count++;	// miss key
+
+	return "";	// there can't be NULL
 }
 
-bool CSimplekvsvr::setValue(char* key, char* value)
+bool CSimplekvsvr::setValue(const char* key, const char* value)
 {
 
 	if (io_file->is_open())
@@ -196,22 +210,23 @@ bool CSimplekvsvr::setValue(char* key, char* value)
 		cout << "[INFO] file open successfully." << endl;
 
 		struct SVal val(value);
-		map<char*, long long>::iterator iter = m_db.find(key);
+		map<const char*, long long>::iterator iter = m_db->find(key);
 		char old_state = 0;
-		if (iter != m_db.end())
+		if (iter != m_db->end())
 		{
 			old_state = val.changeState(io_file, iter->second, 0);	// delete old value in file
 		}
+
 		val.c_state = old_state;	// set value state
-		m_db[key] = val.write(io_file);
+		(*m_db)[key] = val.write(io_file);
 
 		// persist Key
-		struct SKey s_key(m_db[key], key);
+		struct SKey s_key((*m_db)[key], key);
 		s_key.write(io_persist);
 
 		// update cache
-		map<char*, char*>::iterator cache_iter = m_cache.find(key);
-		if (cache_iter != m_cache.end())
+		map<const char*, const char*>::iterator cache_iter = m_cache->find(key);
+		if (cache_iter != m_cache->end())
 		{
 			cout << "[INFO] update cache" << endl;
 			cache_iter->second = value;
@@ -221,20 +236,20 @@ bool CSimplekvsvr::setValue(char* key, char* value)
 	return true;
 }
 
-bool CSimplekvsvr::deleteValue(char* key)
+bool CSimplekvsvr::deleteValue(const char* key)
 {
-	map<char*, long long>::iterator iter = m_db.find(key);
-	if (iter != m_db.end())
+	map<const char*, long long>::iterator iter = m_db->find(key);
+	if (iter != m_db->end())
 	{
 		// change data dirty state
 		struct SVal val;
 		val.changeState(io_file, iter->second, 0);
 
 		// delete data in m_db
-		m_cache.erase(key);
+		m_cache->erase(key);
 
 		// delete data in m_cache
-		m_db.erase(iter);
+		m_db->erase(iter);
 	}
 	return true;
 }
@@ -242,7 +257,7 @@ bool CSimplekvsvr::deleteValue(char* key)
 bool CSimplekvsvr::loadData()
 {
 	struct SKey s_key;
-	s_key.readAll(io_persist, &m_db);
+	s_key.readAll(io_persist, m_db);
 	return true;
 }
 
@@ -289,9 +304,12 @@ bool CSimplekvsvr::reorganizeStorage()
 	loadData();
 }
 
-bool CSimplekvsvr::getStatistics()
+Stats* CSimplekvsvr::getStats()
 {
-
+	// TODO: key_count & mem_size & file_size
+	m_stats->key_count = m_db->size();
+	
+	return m_stats;
 }
 
 // for test

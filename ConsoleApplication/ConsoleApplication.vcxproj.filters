@@ -1,35 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="ClientSocket.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ServerSocket.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Simplekvsvr.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ThreadPool.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Thread.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="WorkQueue.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="WorkThreadPool.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="EventLoop.cpp">
-      <Filter>TcpNetwork\Source File</Filter>
-    </ClCompile>
-    <ClCompile Include="TcpConnection.cpp">
-      <Filter>TcpNetwork\Source File</Filter>
     </ClCompile>
     <ClCompile Include="Timestamp.cpp">
       <Filter>TcpNetwork\Util</Filter>
@@ -40,14 +13,8 @@
     <ClCompile Include="AbstractInetAddress.cpp">
       <Filter>TcpNetwork\Util</Filter>
     </ClCompile>
-    <ClCompile Include="Channel.cpp">
-      <Filter>TcpNetwork\Source File</Filter>
-    </ClCompile>
     <ClCompile Include="Epoll.cpp">
       <Filter>TcpNetwork\Epoll</Filter>
-    </ClCompile>
-    <ClCompile Include="TcpServer.cpp">
-      <Filter>TcpNetwork\Source File</Filter>
     </ClCompile>
     <ClCompile Include="SharedMemory.cpp">
       <Filter>CircularQueue</Filter>
@@ -61,37 +28,46 @@
     <ClCompile Include="LockFreeCircularTaskQueue.cpp">
       <Filter>CircularQueue</Filter>
     </ClCompile>
+    <ClCompile Include="CReactor.cpp">
+      <Filter>TcpNetwork\Reactor</Filter>
+    </ClCompile>
+    <ClCompile Include="Channel.cpp">
+      <Filter>TcpNetwork\TcpNetwork</Filter>
+    </ClCompile>
+    <ClCompile Include="EventLoop.cpp">
+      <Filter>TcpNetwork\TcpNetwork</Filter>
+    </ClCompile>
+    <ClCompile Include="TcpConnection.cpp">
+      <Filter>TcpNetwork\TcpNetwork</Filter>
+    </ClCompile>
+    <ClCompile Include="TcpServer.cpp">
+      <Filter>TcpNetwork\TcpNetwork</Filter>
+    </ClCompile>
+    <ClCompile Include="Simplekvsvr.cpp">
+      <Filter>Simplekvsvr</Filter>
+    </ClCompile>
+    <ClCompile Include="Thread.cpp">
+      <Filter>Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadPool.cpp">
+      <Filter>Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkQueue.cpp">
+      <Filter>Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkThreadPool.cpp">
+      <Filter>Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientSocket.cpp">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerSocket.cpp">
+      <Filter>Socket</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ClientSocket.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ServerSocket.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Simplekvsvr.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Thread.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ThreadPool.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="unistd.h">
       <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="WorkQueue.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="WorkThreadPool.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="EventLoop.h">
-      <Filter>TcpNetwork\Head File</Filter>
-    </ClInclude>
-    <ClInclude Include="TcpConnection.h">
-      <Filter>TcpNetwork\Head File</Filter>
     </ClInclude>
     <ClInclude Include="Timestamp.h">
       <Filter>TcpNetwork\Util</Filter>
@@ -102,14 +78,8 @@
     <ClInclude Include="AbstractInetAddress.h">
       <Filter>TcpNetwork\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Channel.h">
-      <Filter>TcpNetwork\Head File</Filter>
-    </ClInclude>
     <ClInclude Include="Epoll.h">
       <Filter>TcpNetwork\Epoll</Filter>
-    </ClInclude>
-    <ClInclude Include="TcpServer.h">
-      <Filter>TcpNetwork\Head File</Filter>
     </ClInclude>
     <ClInclude Include="SharedMemory.h">
       <Filter>CircularQueue</Filter>
@@ -119,6 +89,42 @@
     </ClInclude>
     <ClInclude Include="LockFreeCircularTaskQueue.h">
       <Filter>CircularQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="CReactor.h">
+      <Filter>TcpNetwork\Reactor</Filter>
+    </ClInclude>
+    <ClInclude Include="Channel.h">
+      <Filter>TcpNetwork\TcpNetwork</Filter>
+    </ClInclude>
+    <ClInclude Include="EventLoop.h">
+      <Filter>TcpNetwork\TcpNetwork</Filter>
+    </ClInclude>
+    <ClInclude Include="TcpConnection.h">
+      <Filter>TcpNetwork\TcpNetwork</Filter>
+    </ClInclude>
+    <ClInclude Include="TcpServer.h">
+      <Filter>TcpNetwork\TcpNetwork</Filter>
+    </ClInclude>
+    <ClInclude Include="Simplekvsvr.h">
+      <Filter>Simplekvsvr</Filter>
+    </ClInclude>
+    <ClInclude Include="Thread.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadPool.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkQueue.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkThreadPool.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientSocket.h">
+      <Filter>Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerSocket.h">
+      <Filter>Socket</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -134,12 +140,6 @@
     <Filter Include="TcpNetwork">
       <UniqueIdentifier>{b37b6bfc-4034-48b7-badb-669b06d249b2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TcpNetwork\Head File">
-      <UniqueIdentifier>{d68f6de7-7d71-4c6d-bfbb-49dfeb681574}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TcpNetwork\Source File">
-      <UniqueIdentifier>{553e6429-a6ce-4861-811b-51b16d4dbd1c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TcpNetwork\Util">
       <UniqueIdentifier>{44f18275-1298-4a2d-8cef-438e4a5ff840}</UniqueIdentifier>
     </Filter>
@@ -148,6 +148,24 @@
     </Filter>
     <Filter Include="CircularQueue">
       <UniqueIdentifier>{71b63f6b-4b3c-4b5f-899c-bd280707f55e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TcpNetwork\Reactor">
+      <UniqueIdentifier>{d42ce07f-d716-44ae-ab90-c648df4e306b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TcpNetwork\TcpNetwork">
+      <UniqueIdentifier>{b2c2be90-7747-4558-b8e2-8887b5785f9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Simplekvsvr">
+      <UniqueIdentifier>{8d1aab37-0c02-406c-9d6c-3534e1ed1a9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Thread">
+      <UniqueIdentifier>{7ac6a2b5-a3a2-4f4f-9446-10bc9984f6b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Process">
+      <UniqueIdentifier>{a81909a7-a3dc-4fc5-8d62-4e6261701d21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Socket">
+      <UniqueIdentifier>{199d25dc-ffd8-413f-99c4-721384bc54b0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

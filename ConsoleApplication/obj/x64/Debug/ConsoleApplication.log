@@ -3,21 +3,57 @@
   Validating architecture
   Starting remote build
   Compiling sources:
-  LockFreeCircularTaskQueue.cpp
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(32,1): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(32,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(32,1): warning :  ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(56,1): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(56,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(56,1): warning :  ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(8,11): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(8,11): warning :   task_sm_ = new SharedMemory<Task>("/tmp", 66);
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(8,11): warning :            ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(9,13): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(9,13): warning :   header_sm_ = new SharedMemory<Header>("/tmp", 67);
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(9,13): warning :              ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(11,34): warning : conversion to ‘int’ from ‘long unsigned int’ may alter its value [-Wconversion]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(11,34): warning :   task_sm_->get_shm(sizeof(T) * 10);
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(11,34): warning :                                   ^
+  Simplekvsvr.cpp
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(7,38): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(7,38): warning :  void SetBit(int i, char* var) { *var |= 1 << i; };
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(7,38): warning :                                       ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(8,38): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(8,38): warning :  void ClearBit(int i, char var) { var &= ~(1 << i); };
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(8,38): warning :                                       ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(20,24): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(20,24): warning :   i_val_len = strlen(val);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(20,24): warning :                         ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(27,24): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(27,24): warning :   i_val_len = strlen(val);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(27,24): warning :                         ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(58,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(58,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(58,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(82,24): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(82,24): warning :   i_key_len = strlen(key);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(82,24): warning :                         ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(89,24): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(89,24): warning :   i_key_len = strlen(key);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(89,24): warning :                         ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(98,12): warning : unused variable ‘offset’ [-Wunused-variable]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(98,12): warning :   long long offset = io_persist->tellg();
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(98,12): warning :             ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(103,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(103,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(103,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(114,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(114,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(114,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(136,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(136,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(136,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(188,36): warning : conversion to ‘int’ from ‘long long int’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(188,36): warning :    val.read(io_file, db_iter->second); // m_db[key]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(188,36): warning :                                     ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(282,35): warning : conversion to ‘int’ from ‘long long int’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(282,35): warning :    val.read(io_file, key.val_offset);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(282,35): warning :                                    ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(305,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(305,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(305,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(310,34): warning : conversion to ‘std::__atomic_base<int>::__int_type {aka int}’ from ‘std::map<const char*, long long int, ptrCmp>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(310,34): warning :   m_stats->key_count = m_db->size();
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(310,34): warning :                                   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(332,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(332,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(332,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(350,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(350,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(350,1): warning :  ^
   Linking objects
   ConsoleApplication.vcxproj -> C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\bin\x64\Debug\ConsoleApplication.out

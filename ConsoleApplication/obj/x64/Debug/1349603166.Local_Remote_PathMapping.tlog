@@ -4,6 +4,7 @@ C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication|/root/projects
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Channel.cpp|/root/projects/ConsoleApplication/Channel.cpp
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp|/root/projects/ConsoleApplication/CircularTaskQueue.cpp
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp|/root/projects/ConsoleApplication/ClientSocket.cpp
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CReactor.cpp|/root/projects/ConsoleApplication/CReactor.cpp
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.cpp|/root/projects/ConsoleApplication/Epoll.cpp
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\EventLoop.cpp|/root/projects/ConsoleApplication/EventLoop.cpp
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\InetAddress.cpp|/root/projects/ConsoleApplication/InetAddress.cpp
@@ -24,6 +25,7 @@ C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\AbstractInetAd
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Channel.h|/root/projects/ConsoleApplication/Channel.h
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h|/root/projects/ConsoleApplication/CircularTaskQueue.h
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.h|/root/projects/ConsoleApplication/ClientSocket.h
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CReactor.h|/root/projects/ConsoleApplication/CReactor.h
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.h|/root/projects/ConsoleApplication/Epoll.h
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\EventLoop.h|/root/projects/ConsoleApplication/EventLoop.h
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\InetAddress.h|/root/projects/ConsoleApplication/InetAddress.h
