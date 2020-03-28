@@ -3,24 +3,272 @@
   Validating architecture
   Starting remote build
   Compiling sources:
+  AbstractInetAddress.cpp
+  Channel.cpp
+  CircularTaskQueue.cpp
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(50,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(50,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(50,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(55,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(55,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(55,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(60,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(60,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(60,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(65,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(65,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(65,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(70,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(70,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(70,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(75,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(75,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(75,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(80,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(80,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(80,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(90,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(90,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(90,2): warning :   ^
+  ClientSocket.cpp
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(7,7): warning : unused variable ‘m_recv_line’ [-Wunused-variable]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(7,7): warning :   char m_recv_line[MAXLINE];
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(7,7): warning :        ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(8,7): warning : unused variable ‘m_send_line’ [-Wunused-variable]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(8,7): warning :   char m_send_line[MAXLINE];
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(8,7): warning :        ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(61,42): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(61,42): warning :    int n = recv(m_sockfd, buff, MAXLINE, 0);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp(61,42): warning :                                           ^
+  CReactor.cpp
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CReactor.cpp(243,43): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CReactor.cpp(243,43): warning :     int nRecv = recv(clientfd, buff, 256, 0);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CReactor.cpp(243,43): warning :                                            ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CReactor.cpp(323,63): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CReactor.cpp(323,63): warning :     int nSend = send(clientfd, reply.c_str(), reply.length(), 0);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CReactor.cpp(323,63): warning :                                                                ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CReactor.cpp(362,37): warning : suggest parentheses around assignment used as truth value [-Wparentheses]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CReactor.cpp(362,37): warning :   while (word = strtok(nullptr, delim))
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CReactor.cpp(362,37): warning :                                      ^
+  Epoll.cpp
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.cpp(24,32): warning : conversion to ‘uint16_t {aka short unsigned int}’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.cpp(24,32): warning :   servaddr.sin_port = htons(port);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.cpp(24,32): warning :                                 ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.cpp(169,38): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.cpp(169,38): warning :   bufLen = read(fd, buf, MAX_BUFF_SIZE);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.cpp(169,38): warning :                                       ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.cpp(198,36): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.cpp(198,36): warning :   int nwrite = write(fd, buf, bufLen);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.cpp(198,36): warning :                                     ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.cpp(134,1): warning : control reaches end of non-void function [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.cpp(134,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.cpp(134,1): warning :  ^
+  EventLoop.cpp
+  InetAddress.cpp
+  KvMemoryCache.cpp
+  KVFileDatabase.cpp
   KvSvr.cpp
+  KvTaskQueue.cpp
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskQueue.cpp(21,1): warning : no return statement in function returning non-void [-Wreturn-type]
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskQueue.cpp(21,1): warning :  }
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskQueue.cpp(21,1): warning :  ^
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskQueue.cpp(33,1): warning : no return statement in function returning non-void [-Wreturn-type]
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskQueue.cpp(33,1): warning :  }
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskQueue.cpp(33,1): warning :  ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvSvr.cpp(22,1): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvSvr.cpp(22,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvSvr.cpp(22,1): warning :  ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvSvr.cpp(28,1): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvSvr.cpp(28,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvSvr.cpp(28,1): warning :  ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvSvr.cpp(34,1): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvSvr.cpp(34,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvSvr.cpp(34,1): warning :  ^
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvSvr.cpp(40,1): warning : no return statement in function returning non-void [-Wreturn-type]
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvSvr.cpp(40,1): warning :  }
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvSvr.cpp(40,1): warning :  ^
+  KvTaskThreadPool.cpp
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskQueue.cpp(21,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskQueue.cpp(21,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskQueue.cpp(21,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskQueue.cpp(33,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskQueue.cpp(33,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskQueue.cpp(33,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskThreadPool.cpp(45,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskThreadPool.cpp(45,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskThreadPool.cpp(45,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskThreadPool.cpp(55,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskThreadPool.cpp(55,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskThreadPool.cpp(55,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskThreadPool.cpp(61,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskThreadPool.cpp(61,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskThreadPool.cpp(61,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskThreadPool.cpp(67,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskThreadPool.cpp(67,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskThreadPool.cpp(67,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskThreadPool.cpp(73,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskThreadPool.cpp(73,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskThreadPool.cpp(73,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskThreadPool.cpp(79,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskThreadPool.cpp(79,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskThreadPool.cpp(79,1): warning :  ^
+  LockFreeCircularTaskQueue.cpp
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(51,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(51,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(51,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(56,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(56,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(56,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(61,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(61,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(61,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(66,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(66,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(66,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(71,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(71,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(71,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(76,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(76,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(76,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(81,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(81,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(81,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(91,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(91,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h(91,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(35,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(35,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(35,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(59,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(59,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp(59,1): warning :  ^
+  main.cpp
+  MutexAndCondDemo.cpp
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(50,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(50,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(50,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(55,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(55,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(55,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(60,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(60,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(60,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(65,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(65,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(65,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(70,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(70,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(70,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(75,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(75,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(75,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(80,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(80,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(80,2): warning :   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(90,2): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(90,2): warning :   }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.h(90,2): warning :   ^
+  ServerSocket.cpp
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(8,7): warning : unused variable ‘m_buff’ [-Wunused-variable]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(8,7): warning :   char m_buff[MAXLINE];
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(8,7): warning :        ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(9,21): warning : unused variable ‘m_servaddr’ [-Wunused-variable]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(9,21): warning :   struct sockaddr_in m_servaddr;
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(9,21): warning :                      ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(78,24): warning : cast to pointer from integer of different size [-Wint-to-pointer-cast]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(78,24): warning :    work->setData((void*)connfd);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(78,24): warning :                         ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(97,39): warning : conversion to ‘int’ from ‘long int’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(97,39): warning :   int n = recv(connfd, buff, MAXLINE, 0);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(97,39): warning :                                        ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(97,39): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(101,36): warning : conversion to ‘int’ from ‘long int’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(101,36): warning :   send(connfd, buff, strlen(buff), 0);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(101,36): warning :                                     ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(102,14): warning : conversion to ‘int’ from ‘long int’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(102,14): warning :   close(connfd);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.cpp(102,14): warning :               ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning :  ^
+  SharedMemory.cpp
+  Simplekvsvr.cpp
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(7,38): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(7,38): warning :  void SetBit(int i, char* var) { *var |= 1 << i; };
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(7,38): warning :                                       ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(8,38): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(8,38): warning :  void ClearBit(int i, char var) { var &= ~(1 << i); };
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(8,38): warning :                                       ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(20,24): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(20,24): warning :   i_val_len = strlen(val);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(20,24): warning :                         ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(27,24): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(27,24): warning :   i_val_len = strlen(val);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(27,24): warning :                         ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(58,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(58,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(58,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(82,24): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(82,24): warning :   i_key_len = strlen(key);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(82,24): warning :                         ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(89,24): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(89,24): warning :   i_key_len = strlen(key);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(89,24): warning :                         ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(98,12): warning : unused variable ‘offset’ [-Wunused-variable]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(98,12): warning :   long long offset = io_persist->tellg();
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(98,12): warning :             ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(103,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(103,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(103,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(114,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(114,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(114,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(136,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(136,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(136,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(188,36): warning : conversion to ‘int’ from ‘long long int’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(188,36): warning :    val.read(io_file, db_iter->second); // m_db[key]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(188,36): warning :                                     ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(282,35): warning : conversion to ‘int’ from ‘long long int’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(282,35): warning :    val.read(io_file, key.val_offset);
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(282,35): warning :                                    ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(305,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(305,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(305,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(310,34): warning : conversion to ‘std::__atomic_base<int>::__int_type {aka int}’ from ‘std::map<const char*, long long int, ptrCmp>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(310,34): warning :   m_stats->key_count = m_db->size();
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(310,34): warning :                                   ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(332,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(332,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(332,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(350,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(350,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Simplekvsvr.cpp(350,1): warning :  ^
+  TcpConnection.cpp
+  TcpServer.cpp
+  Thread.cpp
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(50,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(50,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(50,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(99,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(99,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(99,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(113,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(113,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(113,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(122,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(122,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(122,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(130,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(130,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp(130,1): warning :  ^
+  ThreadPool.cpp
+  Timestamp.cpp
+  WorkQueue.cpp
+  WorkThreadPool.cpp
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(49,1): warning :  ^
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning : no return statement in function returning non-void [-Wreturn-type]
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning :  }
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp(79,1): warning :  ^
   Linking objects
   ConsoleApplication.vcxproj -> C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\bin\x64\Debug\ConsoleApplication.out

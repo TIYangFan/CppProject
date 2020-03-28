@@ -11,6 +11,7 @@
 #include <sstream>
 
 #include "WorkQueue.h"
+#include "KvMemoryCache.h"
 #include "KvTaskQueue.h"
 
 #define READER_THREAD_NUM 5
@@ -21,15 +22,6 @@
 	注：网络层只需调用业务层的读写开放接口，而不需要关心业务层的操作逻辑
 	充分使用阻塞队列来对业务层逻辑进行解耦，并进行读写分离来进一步提升系统性能
 */
-
-struct Task
-{
-	int clientfd;
-	char* key;
-	char* val;
-
-	// continue..
-};
 
 template<typename T>
 class KvSvr
@@ -46,18 +38,10 @@ public:
 	bool deal_with_task();
 	bool finish_task();				// should 
 
-	bool enqueue_pending_queue(T task);
-	bool dequeue_pending_queue(T& task);
-
-	bool enqueue_processed_queue(T task);
-	bool dequeue_processed_queue(T& task);
-
 
 private:
-	//list<T> m_task_queue;			// 任务队列
 
-	KvTaskQueue<T>* m_pending_queue;			// 待处理任务队列
-	KvTaskQueue<T>* m_processed_queue;			// 已处理任务队列
+	//list<T> m_task_queue;			// 任务队列
 
 	list<T> m_write_disk_queue;		// 待写入磁盘数据队列
 	list<T> m_persist_data_queue;	// 待持久化队列

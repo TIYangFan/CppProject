@@ -67,10 +67,16 @@
     <ClCompile Include="KvSvr.cpp">
       <Filter>KvSvr</Filter>
     </ClCompile>
-    <ClCompile Include="KvCache.cpp">
+    <ClCompile Include="KvTaskQueue.cpp">
       <Filter>KvSvr</Filter>
     </ClCompile>
-    <ClCompile Include="KvTaskQueue.cpp">
+    <ClCompile Include="KVFileDatabase.cpp">
+      <Filter>KvSvr</Filter>
+    </ClCompile>
+    <ClCompile Include="KvMemoryCache.cpp">
+      <Filter>KvSvr</Filter>
+    </ClCompile>
+    <ClCompile Include="KvTaskThreadPool.cpp">
       <Filter>KvSvr</Filter>
     </ClCompile>
   </ItemGroup>
@@ -138,10 +144,16 @@
     <ClInclude Include="KvSvr.h">
       <Filter>KvSvr</Filter>
     </ClInclude>
-    <ClInclude Include="KvCache.h">
+    <ClInclude Include="KvTaskQueue.h">
       <Filter>KvSvr</Filter>
     </ClInclude>
-    <ClInclude Include="KvTaskQueue.h">
+    <ClInclude Include="KVFileDatabase.h">
+      <Filter>KvSvr</Filter>
+    </ClInclude>
+    <ClInclude Include="KvMemoryCache.h">
+      <Filter>KvSvr</Filter>
+    </ClInclude>
+    <ClInclude Include="KvTaskThreadPool.h">
       <Filter>KvSvr</Filter>
     </ClInclude>
   </ItemGroup>
