@@ -64,6 +64,15 @@
     <ClCompile Include="ServerSocket.cpp">
       <Filter>Socket</Filter>
     </ClCompile>
+    <ClCompile Include="KvSvr.cpp">
+      <Filter>KvSvr</Filter>
+    </ClCompile>
+    <ClCompile Include="KvCache.cpp">
+      <Filter>KvSvr</Filter>
+    </ClCompile>
+    <ClCompile Include="KvTaskQueue.cpp">
+      <Filter>KvSvr</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="unistd.h">
@@ -126,6 +135,15 @@
     <ClInclude Include="ServerSocket.h">
       <Filter>Socket</Filter>
     </ClInclude>
+    <ClInclude Include="KvSvr.h">
+      <Filter>KvSvr</Filter>
+    </ClInclude>
+    <ClInclude Include="KvCache.h">
+      <Filter>KvSvr</Filter>
+    </ClInclude>
+    <ClInclude Include="KvTaskQueue.h">
+      <Filter>KvSvr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="头文件">
@@ -166,6 +184,9 @@
     </Filter>
     <Filter Include="Socket">
       <UniqueIdentifier>{199d25dc-ffd8-413f-99c4-721384bc54b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KvSvr">
+      <UniqueIdentifier>{b30984d2-c258-4676-b85b-e6f7bd8cd62c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

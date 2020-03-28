@@ -7,8 +7,13 @@
 #include <unistd.h>
 #include <string.h>
 #include <iostream>
+#include <iostream>
+#include <sstream>
 
-#define READER_THREAD_NUM 5;
+#include "WorkQueue.h"
+#include "KvTaskQueue.h"
+
+#define READER_THREAD_NUM 5
 
 /*
 	TODO：将业务层与网络层进一步解耦
@@ -36,29 +41,29 @@ public:
 	bool read();
 	bool write();
 
-private:
+//private:
 
 	bool deal_with_task();
 	bool finish_task();				// should 
 
-	bool enqueue_pending_queue();
-	bool dequeue_pending_queue();
+	bool enqueue_pending_queue(T task);
+	bool dequeue_pending_queue(T& task);
 
-	bool enqueue_processed_queue();
-	bool dequeue_processed_queue();
+	bool enqueue_processed_queue(T task);
+	bool dequeue_processed_queue(T& task);
 
 
 private:
 	//list<T> m_task_queue;			// 任务队列
 
-	list<T> m_pending_queue;		// 待处理任务队列
-	list<T> m_processed_queue;		// 已处理任务队列
+	KvTaskQueue<T>* m_pending_queue;			// 待处理任务队列
+	KvTaskQueue<T>* m_processed_queue;			// 已处理任务队列
 
 	list<T> m_write_disk_queue;		// 待写入磁盘数据队列
 	list<T> m_persist_data_queue;	// 待持久化队列
 
 	shared_ptr<thread>		m_writerthread;							// io file writer
 	shared_ptr<thread>		m_persistthread;						// io persist writer
-	shared_ptr<thread>		m_readerthreads[WORKER_THREAD_NUM];		// io file reader
+	shared_ptr<thread>		m_readerthreads[READER_THREAD_NUM];		// io file reader
 };
 

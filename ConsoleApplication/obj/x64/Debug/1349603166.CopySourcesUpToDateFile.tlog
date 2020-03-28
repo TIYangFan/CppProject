@@ -2,10 +2,13 @@ C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\AbstractInetAd
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Channel.cpp|637204971916417597|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CircularTaskQueue.cpp|637206603601663909|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ClientSocket.cpp|637209265868689285|~/projects/ConsoleApplication|
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CReactor.cpp|637209286032975567|~/projects/ConsoleApplication|
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CReactor.cpp|637209822359865306|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.cpp|637204962387151095|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\EventLoop.cpp|637202971985592832|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\InetAddress.cpp|637202985452971494|~/projects/ConsoleApplication|
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvCache.cpp|637209424885197923|~/projects/ConsoleApplication|
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvSvr.cpp|637209903986010302|~/projects/ConsoleApplication|
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskQueue.cpp|637209869725897854|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.cpp|637208485189081944|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\main.cpp|637199048691915926|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\MutexAndCondDemo.cpp|637205751115407245|~/projects/ConsoleApplication|
@@ -17,7 +20,7 @@ C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\TcpServer.cpp|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.cpp|637199009049636961|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ThreadPool.cpp|637198883519400827|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Timestamp.cpp|637202989071828068|~/projects/ConsoleApplication|
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkQueue.cpp|637199049114954637|~/projects/ConsoleApplication|
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkQueue.cpp|637209841882900884|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.cpp|637199922022151137|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\AbstractInetAddress.h|637202984746240316|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Channel.h|637204971961796258|~/projects/ConsoleApplication|
@@ -27,6 +30,9 @@ C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\CReactor.h|637
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Epoll.h|637203330520296792|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\EventLoop.h|637202972194129209|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\InetAddress.h|637202985492988682|~/projects/ConsoleApplication|
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvCache.h|637209817537249211|~/projects/ConsoleApplication|
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvSvr.h|637209867997781551|~/projects/ConsoleApplication|
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\KvTaskQueue.h|637209863744337736|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\LockFreeCircularTaskQueue.h|637206774802789362|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ServerSocket.h|637199910299620070|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\SharedMemory.h|637205039700626482|~/projects/ConsoleApplication|
@@ -37,5 +43,5 @@ C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Thread.h|63719
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\ThreadPool.h|637198883539097694|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\Timestamp.h|637202989336991045|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\unistd.h|637198035100417673|~/projects/ConsoleApplication|
-C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkQueue.h|637205060867549566|~/projects/ConsoleApplication|
+C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkQueue.h|637209841862385774|~/projects/ConsoleApplication|
 C:\Users\57690\source\repos\ConsoleApplication\ConsoleApplication\WorkThreadPool.h|637199886556031766|~/projects/ConsoleApplication|

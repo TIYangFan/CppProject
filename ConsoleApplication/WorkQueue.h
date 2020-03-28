@@ -34,8 +34,10 @@ public:
 
 private:
 	queue<shared_ptr<T>> m_queue;
+
 	mutex m_mutex;
 	condition_variable m_condition;
+
 	atomic<bool> m_termination;
 };
 
