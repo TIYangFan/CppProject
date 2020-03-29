@@ -70,13 +70,25 @@
     <ClCompile Include="KvTaskQueue.cpp">
       <Filter>KvSvr</Filter>
     </ClCompile>
-    <ClCompile Include="KVFileDatabase.cpp">
-      <Filter>KvSvr</Filter>
-    </ClCompile>
     <ClCompile Include="KvMemoryCache.cpp">
       <Filter>KvSvr</Filter>
     </ClCompile>
     <ClCompile Include="KvTaskThreadPool.cpp">
+      <Filter>KvSvr</Filter>
+    </ClCompile>
+    <ClCompile Include="KvDataSource.cpp">
+      <Filter>KvSvr</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcurrentHashMap.cpp">
+      <Filter>KvSvr\ConcurrentContainer</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadWriteLock.cpp">
+      <Filter>KvSvr\ConcurrentContainer\ConcurrentUtil</Filter>
+    </ClCompile>
+    <ClCompile Include="KvFileDatabase.cpp">
+      <Filter>KvSvr</Filter>
+    </ClCompile>
+    <ClCompile Include="KvFileOperation.cpp">
       <Filter>KvSvr</Filter>
     </ClCompile>
   </ItemGroup>
@@ -147,13 +159,25 @@
     <ClInclude Include="KvTaskQueue.h">
       <Filter>KvSvr</Filter>
     </ClInclude>
-    <ClInclude Include="KVFileDatabase.h">
-      <Filter>KvSvr</Filter>
-    </ClInclude>
     <ClInclude Include="KvMemoryCache.h">
       <Filter>KvSvr</Filter>
     </ClInclude>
     <ClInclude Include="KvTaskThreadPool.h">
+      <Filter>KvSvr</Filter>
+    </ClInclude>
+    <ClInclude Include="KvDataSource.h">
+      <Filter>KvSvr</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcurrentHashMap.h">
+      <Filter>KvSvr\ConcurrentContainer</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadWriteLock.h">
+      <Filter>KvSvr\ConcurrentContainer\ConcurrentUtil</Filter>
+    </ClInclude>
+    <ClInclude Include="KvFileDatabase.h">
+      <Filter>KvSvr</Filter>
+    </ClInclude>
+    <ClInclude Include="KvFileOperation.h">
       <Filter>KvSvr</Filter>
     </ClInclude>
   </ItemGroup>
@@ -199,6 +223,12 @@
     </Filter>
     <Filter Include="KvSvr">
       <UniqueIdentifier>{b30984d2-c258-4676-b85b-e6f7bd8cd62c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KvSvr\ConcurrentContainer">
+      <UniqueIdentifier>{0eba4de4-74cb-4292-b72c-f630037fda9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KvSvr\ConcurrentContainer\ConcurrentUtil">
+      <UniqueIdentifier>{f4068c45-8e50-4042-a10f-d8b3179324c0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

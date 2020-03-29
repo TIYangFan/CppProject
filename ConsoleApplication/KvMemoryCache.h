@@ -1,6 +1,8 @@
 #pragma once
 #include <map>
 #include <string.h>
+#include <iostream>
+#include <stdlib.h>
 
 #include "KvDataSource.h"
 
@@ -14,7 +16,7 @@ struct ptrCmp
 	}
 };
 
-class KvMemoryCache : public KvDataSource
+class KvMemoryCache
 {
 public:
 	KvMemoryCache();
@@ -28,7 +30,7 @@ public:
 	bool del_all_val();
 
 private:
-	map<const char*, const char*, ptrCmp>* m_cache; // TODO: LRU
+	map<const char*, const char*, ptrCmp>* m_cache; // TODO: LRU and Thread Safe and Read and write separation and Segment lock
 
 	// TODO: something statistics
 
